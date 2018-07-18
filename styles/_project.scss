@@ -1,0 +1,126 @@
+/**
+ * Project specific styling.
+ */
+
+// Header styles
+.results-header{
+    text-align: center;
+    max-width: 900px;
+
+   h1 {
+    padding-top: 0.3em;
+    line-height: 1.1em;
+  }
+
+   h5 {
+    text-transform: uppercase;
+    font-size: .9em;
+    letter-spacing: .08em;
+    padding-top: 40px;
+  }
+
+
+// Nav styles
+
+  nav ul{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 40px auto 40px auto;
+  }
+
+  nav ul li{
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 0.75em;
+    font-family: 'Benton Sans';
+    border: 1px solid #080808;
+    border-radius: 6px;
+    padding: 5px 10px 4px 10px;
+    margin-right: 12px;
+    min-width: 12%;
+  }
+
+  nav ul li:last-child {
+    margin-right: 0;
+  }
+
+  nav ul li a, nav ul li a:link, nav ul li a:visited{
+    color: #080808;
+  }
+
+  nav ul li:hover{
+   color: #666;
+   border: 1px solid #666;
+   cursor: pointer;
+ }
+
+  nav ul li:hover a:hover {
+   color: #666;
+ }
+
+}
+
+
+//Results mainframe
+.results{
+  max-width: 975px;
+
+  h3{
+    font-weight: bold;
+    font-size: 1.3em;
+  }
+
+  .lead-in{
+    max-width: 525px;
+    margin: auto;
+    text-transform: none;
+    font-family: 'Benton Sans';
+    font-size: .9em;
+    padding: 40px 0px;
+  }
+
+  .lead-in span{
+    font-weight: bold;
+  }
+
+  .race-group .race-party:last-child{
+    margin-left:10%;
+  }
+
+  .race-party{
+    width: 45%;
+    float: left;
+  }
+
+  .race-group{
+    clear: both;
+  }
+
+  .race-party thead tr th{
+    font-size: .6em;
+    text-transform: uppercase;
+    color: #080808;
+    font-weight: normal;
+    border-bottom: 3px solid #EEEEEE;
+    padding-left: 0px;
+    padding-bottom: .3em;
+  }
+
+  .race-party td{
+    font-size: .9em;
+  }
+
+  .votes, .pct{
+    text-align: right;
+  }
+
+  .bar{
+    width: 30%;
+  }
+
+
+
+
+}
+
