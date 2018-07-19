@@ -2,6 +2,16 @@
  * Project specific styling.
  */
 
+// MAP styles
+
+.counties {
+  fill: #DCDCDC;
+  stroke: white;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
 // HEADER styles
 .results-header{
     text-align: center;
@@ -185,4 +195,3 @@
 
 
 }
-

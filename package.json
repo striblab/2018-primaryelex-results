@@ -19,8 +19,10 @@
     "node": ">=8.9.0"
   },
   "dependencies": {
+    "d3": "^5.5.0",
     "lodash": "^4.17.5",
-    "query-string": "^4.3.2"
+    "query-string": "^4.3.2",
+    "topojson": "^3.0.2"
   },
   "devDependencies": {
     "@striblab/strib-icons": "^0.0.10",
