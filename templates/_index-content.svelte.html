@@ -6,7 +6,7 @@
   	<!-- share -->
 
   	<!-- NAVIGATION -->
-  	<nav>
+  	<nav id="button-nav">
       <ul>
         <li class="main-nav"><a href="#G">Governor</a></li>
         <li class="main-nav">
@@ -36,6 +36,26 @@
         </li>
       </ul>
     </nav>
+
+    <nav id="drop-nav">
+      <select>
+        <option value="#G">Governor</option>
+        <option value="#C">Congress</option>
+        <option value="#CH" class="sub">U.S. House</option>
+        <option value="#CS" class="sub">U.S. Senate</option>
+        <option value="#S">State</option>
+        <option value="#SAG" class="sub">Atty. General</option>
+        <option value="#SA" class="sub">Auditor</option>
+        <option value="#SS" class="sub">Sec. of State</option>
+        <option value="#SL" class="sub">Legislature</option>
+        <option value="#SJ" class="sub">Judiciary</option>
+        <option value="#L">Local</option>
+        <option value="#LCO" class="sub">County</option>
+        <option value="#LCI" class="sub">City</option>
+        <option value="#LSD" class="sub">School Dist.</option>
+      </select>
+    </nav>
+
   </header>
 
   <section class="results container-lg">
@@ -50,6 +70,7 @@
           <table>
             <thead>
               <tr>
+                <th class="winner"></th>
                 <th class="cand">Democrats</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
@@ -58,30 +79,35 @@
             </thead>
             <tbody>
               <tr>
+                <td class="winner">&#10004;</td>
                 <td class="cand">Lori Swanson</td>
                 <td class="votes">205,323</td>
                 <td class="pct">41%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #82BAE0;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Tim Walz</td>
                 <td class="votes">182,467</td>
                 <td class="pct">36%</td>
                 <td class="bar"><span class="pctBar" style="width: 88%; background-color: #B9EE7D;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Erin Murphy</td>
                 <td class="votes">106,910</td>
                 <td class="pct">21%</td>
                 <td class="bar"><span class="pctBar" style="width: 51%; background-color: #CE91E9;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Tim Holden</td>
                 <td class="votes">2,852</td>
                 <td class="pct">0.57%</td>
                 <td class="bar"><span class="pctBar" style="width: 1.5%; background-color: #9084C3;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Ole Savior</td>
                 <td class="votes">448</td>
                 <td class="pct">0.09%</td>
@@ -89,6 +115,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div id="d-gov-map" class="mapcanvas">
             <svg width="500" height="500"></svg>
           </div>
@@ -97,6 +124,7 @@
           <table>
             <thead>
               <tr>
+                <th class="winner"></th>
                 <th class="cand">Republicans</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
@@ -105,18 +133,21 @@
             </thead>
             <tbody>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Tim Pawlenty</td>
                 <td class="votes">249,324</td>
                 <td class="pct">50%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #EB6868;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Jeff Johnson</td>
                 <td class="votes">247,118</td>
                 <td class="pct">49%</td>
                 <td class="bar"><span class="pctBar" style="width: 98%; background-color: #F9F37C;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Mathew Kruse</td>
                 <td class="votes">3,558</td>
                 <td class="pct">1%</td>
@@ -124,6 +155,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div id="r-gov-map" class="mapcanvas">
             <svg width="500" height="500"></svg>
           </div>
@@ -134,7 +166,7 @@
 
     <!-- CONGRESSIONAL RACES -->
     <div class="race-level" id="C">
-    <div class="race-group">
+    <div class="race-group" id="CS">
       <h3 class="font-benton-sans">U.S. Senate</h3>
         <div class="race">
         <h4 class="font-benton-sans">Special (Class 2)</h4>
@@ -150,7 +182,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cand">Tina Smith</td>
+                <td class="cand">Tina Smith<span class="inc">(i)</span></td>
                 <td class="votes">275,798</td>
                 <td class="pct">41%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
@@ -163,6 +195,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div class="mapcanvas">
           </div>
         </div>
@@ -197,6 +230,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div class="mapcanvas">
           </div>
         </div>
@@ -216,7 +250,7 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cand">Amy Klobuchar<span>(i)</span></td>
+                <td class="cand">Amy Klobuchar<span class="inc">(i)</span></td>
                 <td class="votes">275,798</td>
                 <td class="pct">41%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
@@ -229,6 +263,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div class="mapcanvas">
           </div>
         </div>
@@ -263,6 +298,7 @@
               </tr>
             </tbody>
           </table>
+          <div class="reporting">60% of precincts reporting</div>
           <div class="mapcanvas">
           </div>
         </div>
@@ -271,10 +307,63 @@
   </div>
 
     <!-- STATEWIDE RACES -->
-    <div class="race-group" id="S">
-
-
-
+    <div class="race-level" id="S">
+      <div class="race-group">
+        <h3 class="font-benton-sans">State office</h3>
+        <div class="race" id="SA">
+          <h4 class="font-benton-sans">Auditor</h4>
+          <div class="race-party d uncontested">
+            <table>
+              <thead>
+                <tr>
+                  <th class="winner"></th>
+                  <th class="cand">Democrats</th>
+                  <th class="votes">Votes</th>
+                  <th class="pct">Pct.</th>
+                  <th class="bar"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand">Julie Blaha</td>
+                  <td class="votes">Uncontested</td>
+                  <td class="pct"></td>
+                  <td class="bar"><span class="pctBar" style="width:0%; background-color:;"></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="reporting">60% of precincts reporting</div>
+            <div class="mapcanvas">
+            </div>
+          </div>
+          <div class="race-party r uncontested">
+            <table>
+              <thead>
+                <tr>
+                  <th class="winner"></th>
+                  <th class="cand">Republicans</th>
+                  <th class="votes">Votes</th>
+                  <th class="pct">Pct.</th>
+                  <th class="bar"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand"><span></span>Pam Myhra</td>
+                  <td class="votes">Uncontested</td>
+                  <td class="pct"></td>
+                  <td class="bar"><span class="pctBar" style="width:0%; background-color:;"></span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="reporting">60% of precincts reporting</div>
+            <div class="mapcanvas">
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
   </section>

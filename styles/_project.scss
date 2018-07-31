@@ -155,7 +155,7 @@
     font-weight: bold;
   }
 
-  .race-group .race-party:last-child{
+  .race-group .race-party:nth-child(odd){
     margin-left:8%;
   }
 
@@ -170,6 +170,10 @@
     margin-bottom: 100px;
   }
 
+  .race-party table{
+    margin-bottom: .5em;
+  }
+
   .race-party thead tr th{
     font-size: .6em;
     text-transform: uppercase;
@@ -177,7 +181,7 @@
     font-weight: normal;
     border-bottom: 3px solid #EEEEEE;
     padding-left: 0px;
-    padding-bottom: .3em;
+    padding-bottom: .2em;
   }
 
   .race-party tbody td{
@@ -186,8 +190,23 @@
     vertical-align: middle;
   }
 
+  th.winner{
+    visibility:hidden;
+  }
+
+  td.winner{
+   min-width: 17px;
+   padding: .5em .2em .5em .5em;
+   font-size: .8em;
+  }
+
   .cand{
-    padding-left: 15px;
+    padding-left: 0px;
+  }
+
+  .cand .inc{
+    font-size: .8em;
+    padding-left: 5px;
   }
 
   .votes, .pct{
@@ -195,7 +214,7 @@
   }
 
   .bar{
-    width: 28%;
+    width: 30%;
   }
 
   .bar .pctBar{
@@ -206,11 +225,34 @@
     background-color: black;
   }
 
+  .reporting{
+    font-size: .7em;
+    color: #808080;
+    font-style: italic;
+    margin-bottom: 2em;
+  }
+
   .race-party .mapcanvas span{
     width: 100%;
     height: 400px;
     background-color: #eee;
     display: block;
+  }
+
+  //RACE STYLE EXCEPTIONS
+
+    //Uncontested
+
+  .uncontested th.votes, .uncontested th.pct{
+    visibility: hidden;
+  }
+
+  .uncontested .bar .pctBar{
+    min-width: 0px;
+  }
+
+  .uncontested tr td{
+    background-color: #eee;
   }
 
 
