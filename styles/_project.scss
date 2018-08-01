@@ -2,15 +2,7 @@
  * Project specific styling.
  */
 
-// MAP styles
 
-.counties {
-  fill: #DCDCDC;
-  stroke: white;
-  stroke-width: 1px;
-  stroke-linejoin: round;
-  stroke-linecap: round;
-}
 
 // HEADER styles
 .results-header{
@@ -98,6 +90,29 @@
     transition:300ms ease;
     }
 
+  nav.visible-phone{
+    position: relative;
+    font-family: 'Benton Sans';
+    min-width: 50%;
+    max-width: 80%;
+    margin: auto;
+    cursor: pointer;
+  }
+
+  nav select option{
+    text-transform: uppercase;
+    font-style: bold;
+  }
+
+  nav select option.sub{
+    text-indent: 3em;
+    font-style: none;
+  }
+
+  #drop-nav{
+    display: none;
+  }
+
 
 // NAV hover states
 
@@ -137,22 +152,37 @@
 .results{
   max-width: 975px;
 
-  h3{
-    font-weight: bold;
-    font-size: 1.3em;
-  }
-
   .lead-in{
     max-width: 525px;
     margin: auto;
     text-transform: none;
     font-family: 'Benton Sans';
-    font-size: .9em;
+    font-size: 1em;
     padding: 40px 0px;
   }
 
   .lead-in span{
     font-weight: bold;
+  }
+
+  h3{
+    font-weight: bold;
+    font-size: 1.4em;
+  }
+
+  h4{
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+
+  h6{
+    font-size: 1.1em;
+    font-weight: normal;
+  }
+
+  .prim-chat p{
+    font-family: 'Benton Sans';
+    font-size: .9em;
   }
 
   .race-group .race-party:nth-child(odd){
@@ -165,9 +195,14 @@
     margin-bottom: 40px;
   }
 
-  .race-group{
+  .race-group, .race{
     clear: both;
     margin-bottom: 100px;
+  }
+
+
+  .race-party-table{
+    min-height: 225px;
   }
 
   .race-party table{
@@ -214,7 +249,7 @@
   }
 
   .bar{
-    width: 30%;
+    width: 25%;
   }
 
   .bar .pctBar{
@@ -226,7 +261,7 @@
   }
 
   .reporting{
-    font-size: .7em;
+    font-size: .65em;
     color: #808080;
     font-style: italic;
     margin-bottom: 2em;
@@ -235,9 +270,23 @@
   .race-party .mapcanvas span{
     width: 100%;
     height: 400px;
+    margin: auto;
     background-color: #eee;
     display: block;
   }
+
+
+  // MAP styles
+
+.counties {
+  fill: #DCDCDC;
+  stroke: white;
+  stroke-width: 1px;
+  stroke-linejoin: round;
+  stroke-linecap: round;
+}
+
+
 
   //RACE STYLE EXCEPTIONS
 
@@ -257,4 +306,35 @@
 
 
 
+}
+
+
+// MOBILE BREAKPOINT STYLES
+
+@media (max-width: 900px){
+  .bar{
+    display:none;
+  }
+}
+
+@media (max-width: 768px){
+  .results .race-party{
+    float: none;
+    width: 90%;
+    margin: auto;
+  }
+
+  .results .race-group .race-party:nth-child(odd){
+    margin: auto;
+  }
+}
+
+@media (max-width: 545px){
+  nav#button-nav{
+    display: none;
+  }
+
+  .results-header #drop-nav{
+    display: block;
+  }
 }

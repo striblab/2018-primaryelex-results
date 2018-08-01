@@ -6,7 +6,7 @@
   	<!-- share -->
 
   	<!-- NAVIGATION -->
-  	<nav id="button-nav">
+  	<nav id="button-nav" class="hidden-phone">
       <ul>
         <li class="main-nav"><a href="#G">Governor</a></li>
         <li class="main-nav">
@@ -37,22 +37,22 @@
       </ul>
     </nav>
 
-    <nav id="drop-nav">
+    <nav id="drop-nav" class="visible-phone">
       <select>
         <option value="#G">Governor</option>
         <option value="#C">Congress</option>
-        <option value="#CH" class="sub">U.S. House</option>
-        <option value="#CS" class="sub">U.S. Senate</option>
+<!--         <option value="#CH" class="sub">U.S. House</option>
+        <option value="#CS" class="sub">U.S. Senate</option> -->
         <option value="#S">State</option>
-        <option value="#SAG" class="sub">Atty. General</option>
+<!--         <option value="#SAG" class="sub">Atty. General</option>
         <option value="#SA" class="sub">Auditor</option>
         <option value="#SS" class="sub">Sec. of State</option>
         <option value="#SL" class="sub">Legislature</option>
-        <option value="#SJ" class="sub">Judiciary</option>
+        <option value="#SJ" class="sub">Judiciary</option> -->
         <option value="#L">Local</option>
-        <option value="#LCO" class="sub">County</option>
+<!--         <option value="#LCO" class="sub">County</option>
         <option value="#LCI" class="sub">City</option>
-        <option value="#LSD" class="sub">School Dist.</option>
+        <option value="#LSD" class="sub">School Dist.</option> -->
       </select>
     </nav>
 
@@ -67,11 +67,16 @@
       <div class="race">
         <h3 class="font-benton-sans">Governor</h3>
         <div class="race-party d">
+          <div class="prim-chat">
+            <h6>Democratic primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
           <table>
             <thead>
               <tr>
                 <th class="winner"></th>
-                <th class="cand">Democrats</th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -116,16 +121,22 @@
             </tbody>
           </table>
           <div class="reporting">60% of precincts reporting</div>
+          </div>
           <div id="d-gov-map" class="mapcanvas">
             <svg width="500" height="500"></svg>
           </div>
         </div>
         <div class="race-party r">
+          <div class="prim-chat">
+            <h6>Republican primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
           <table>
             <thead>
               <tr>
                 <th class="winner"></th>
-                <th class="cand">Republicans</th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -156,6 +167,7 @@
             </tbody>
           </table>
           <div class="reporting">60% of precincts reporting</div>
+          </div>
           <div id="r-gov-map" class="mapcanvas">
             <svg width="500" height="500"></svg>
           </div>
@@ -171,10 +183,16 @@
         <div class="race">
         <h4 class="font-benton-sans">Special (Class 2)</h4>
         <div class="race-party d">
+          <div class="prim-chat">
+            <h6>Democratic primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
           <table>
             <thead>
               <tr>
-                <th class="cand">Democrat candidates</th>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -182,16 +200,311 @@
             </thead>
             <tbody>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Tina Smith<span class="inc">(i)</span></td>
                 <td class="votes">275,798</td>
                 <td class="pct">41%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
               </tr>
               <tr>
+                <td class="winner"></td>
                 <td class="cand">Richard Painter</td>
                 <td class="votes">224,132</td>
                 <td class="pct">36%</td>
                 <td class="bar"><span class="pctBar" style="width: 88%; background-color: #0258A0;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+          </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+        <div class="race-party r">
+          <div class="prim-chat">
+            <h6>Republican primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Karin Housley</td>
+                <td class="votes">492,324</td>
+                <td class="pct">98%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Bob Anderson</td>
+                <td class="votes">7,118</td>
+                <td class="pct">1.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 3%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Nikolay Bey</td>
+                <td class="votes">558</td>
+                <td class="pct">0.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+          </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+      </div>
+
+      <div class="race">
+        <h4 class="font-benton-sans">Scheduled (Class 1)</h4>
+        <div class="race-party d">
+          <div class="prim-chat">
+            <h6>Republican primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Amy Klobuchar<span class="inc">(i)</span></td>
+                <td class="votes">275,798</td>
+                <td class="pct">41%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">David Robert Groves</td>
+                <td class="votes">24,132</td>
+                <td class="pct">10%</td>
+                <td class="bar"><span class="pctBar" style="width: 16%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Stephen A. Emery</td>
+                <td class="votes">22,192</td>
+                <td class="pct">6%</td>
+                <td class="bar"><span class="pctBar" style="width: 10%; background-color: #0258A0;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+        </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+        <div class="race-party r">
+          <div class="prim-chat">
+            <h6>Republican primary</h6>
+            <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+          </div>
+          <div class="race-party-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Jim Newberger</td>
+                <td class="votes">492,324</td>
+                <td class="pct">98%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Roque De La Fuente</td>
+                <td class="votes">7,118</td>
+                <td class="pct">1.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 3%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Rae Hart Anderson</td>
+                <td class="votes">558</td>
+                <td class="pct">0.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Merrill Anderson</td>
+                <td class="votes">58</td>
+                <td class="pct">0.01%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+          </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="race-group" id="CH">
+      <h3 class="font-benton-sans">U.S. House</h3>
+        <div class="race">
+        <h4 class="font-benton-sans">District 1</h4>
+        <div class="race-party d">
+          <div class="race-party-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Dan Feehan</td>
+                <td class="votes">205,798</td>
+                <td class="pct">41%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Colin Minehart</td>
+                <td class="votes">104,132</td>
+                <td class="pct">16%</td>
+                <td class="bar"><span class="pctBar" style="width: 88%; background-color: #0258A0;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+          </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+        <div class="race-party r">
+          <div class="race-party-table">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Jim Hagedorn</td>
+                <td class="votes">492324</td>
+                <td class="pct">98%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Carla Nelson</td>
+                <td class="votes">7,118</td>
+                <td class="pct">1.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 3%; background-color: #C0272D;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Andrew Candler</td>
+                <td class="votes">558</td>
+                <td class="pct">0.5%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="reporting">60% of precincts reporting</div>
+          </div>
+          <div class="mapcanvas">
+          </div>
+        </div>
+      </div>
+
+      <div class="race">
+        <h4 class="font-benton-sans">District 5</h4>
+        <div class="race-party d">
+          <table>
+            <thead>
+              <tr>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
+                <th class="votes">Votes</th>
+                <th class="pct">Pct.</th>
+                <th class="bar"></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Ilhan Omar</td>
+                <td class="votes">275,798</td>
+                <td class="pct">40%</td>
+                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Margaret Anderson Kelliher</td>
+                <td class="votes">224,132</td>
+                <td class="pct">30%</td>
+                <td class="bar"><span class="pctBar" style="width: 88%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Patricia Torres Ray</td>
+                <td class="votes">222,132</td>
+                <td class="pct">28%</td>
+                <td class="bar"><span class="pctBar" style="width: 86%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Jamal Abdulahi</td>
+                <td class="votes">4,132</td>
+                <td class="pct">1%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Frank Nelson Drake</td>
+                <td class="votes">2,132</td>
+                <td class="pct">1%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #0258A0;"></span></td>
+              </tr>
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Bobby Joe Champion</td>
+                <td class="votes">132</td>
+                <td class="pct">.03%</td>
+                <td class="bar"><span class="pctBar" style="width: 1%; background-color: #0258A0;"></span></td>
               </tr>
             </tbody>
           </table>
@@ -203,7 +516,8 @@
           <table>
             <thead>
               <tr>
-                <th class="cand">Republican candidates</th>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -211,19 +525,22 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cand">Karin Housley</td>
-                <td class="votes">492324</td>
+                <td class="winner"></td>
+                <td class="cand">Jennifer Zielinski</td>
+                <td class="votes">492,324</td>
                 <td class="pct">98%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #C0272D;"></span></td>
               </tr>
               <tr>
-                <td class="cand">Bob Anderson</td>
+                <td class="winner"></td>
+                <td class="cand">Christopher Chamberlin</td>
                 <td class="votes">7,118</td>
                 <td class="pct">1.5%</td>
                 <td class="bar"><span class="pctBar" style="width: 3%; background-color: #C0272D;"></span></td>
               </tr>
               <tr>
-                <td class="cand">Nikolay Bey</td>
+                <td class="winner"></td>
+                <td class="cand">Bob Carney Jr.</td>
                 <td class="votes">558</td>
                 <td class="pct">0.5%</td>
                 <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
@@ -237,12 +554,13 @@
       </div>
 
       <div class="race">
-        <h4 class="font-benton-sans">Scheduled (Class 1)</h4>
-        <div class="race-party d">
+        <h4 class="font-benton-sans">District 6</h4>
+        <div class="race-party d uncontested">
           <table>
             <thead>
               <tr>
-                <th class="cand">Democrat candidates</th>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -250,16 +568,11 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cand">Amy Klobuchar<span class="inc">(i)</span></td>
-                <td class="votes">275,798</td>
-                <td class="pct">41%</td>
-                <td class="bar"><span class="pctBar" style="width: 100%; background-color: #0258A0;"></span></td>
-              </tr>
-              <tr>
-                <td class="cand">Richard Painter</td>
-                <td class="votes">224,132</td>
-                <td class="pct">36%</td>
-                <td class="bar"><span class="pctBar" style="width: 88%; background-color: #0258A0;"></span></td>
+                <td class="winner">&#10004;</td>
+                <td class="cand">Ian Todd</td>
+                <td class="votes">Uncontested</td>
+                <td class="pct"></td>
+                <td class="bar"><span class="pctBar" style="width: 0%; background-color:;"></span></td>
               </tr>
             </tbody>
           </table>
@@ -271,7 +584,8 @@
           <table>
             <thead>
               <tr>
-                <th class="cand">Republican candidates</th>
+                <th class="winner"></th>
+                <th class="cand">Candidates</th>
                 <th class="votes">Votes</th>
                 <th class="pct">Pct.</th>
                 <th class="bar"></th>
@@ -279,19 +593,22 @@
             </thead>
             <tbody>
               <tr>
-                <td class="cand">Karin Housley</td>
-                <td class="votes">492324</td>
+                <td class="winner"></td>
+                <td class="cand">Tom Emmer<span class="inc">(i)</span></td>
+                <td class="votes">102,324</td>
                 <td class="pct">98%</td>
                 <td class="bar"><span class="pctBar" style="width: 100%; background-color: #C0272D;"></span></td>
               </tr>
               <tr>
-                <td class="cand">Bob Anderson</td>
+                <td class="winner"></td>
+                <td class="cand">A.J. Kern</td>
                 <td class="votes">7,118</td>
                 <td class="pct">1.5%</td>
                 <td class="bar"><span class="pctBar" style="width: 3%; background-color: #C0272D;"></span></td>
               </tr>
               <tr>
-                <td class="cand">Nikolay Bey</td>
+                <td class="winner"></td>
+                <td class="cand">Patrick Munro</td>
                 <td class="votes">558</td>
                 <td class="pct">0.5%</td>
                 <td class="bar"><span class="pctBar" style="width: 1%; background-color: #C0272D;"></span></td>
@@ -309,7 +626,7 @@
     <!-- STATEWIDE RACES -->
     <div class="race-level" id="S">
       <div class="race-group">
-        <h3 class="font-benton-sans">State office</h3>
+        <h3 class="font-benton-sans">Statewide offices</h3>
         <div class="race" id="SA">
           <h4 class="font-benton-sans">Auditor</h4>
           <div class="race-party d uncontested">
@@ -317,7 +634,7 @@
               <thead>
                 <tr>
                   <th class="winner"></th>
-                  <th class="cand">Democrats</th>
+                  <th class="cand">Candidates</th>
                   <th class="votes">Votes</th>
                   <th class="pct">Pct.</th>
                   <th class="bar"></th>
@@ -342,7 +659,7 @@
               <thead>
                 <tr>
                   <th class="winner"></th>
-                  <th class="cand">Republicans</th>
+                  <th class="cand">Candidates</th>
                   <th class="votes">Votes</th>
                   <th class="pct">Pct.</th>
                   <th class="bar"></th>
