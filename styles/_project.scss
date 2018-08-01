@@ -157,7 +157,7 @@
     margin: auto;
     text-transform: none;
     font-family: 'Benton Sans';
-    font-size: 1em;
+    font-size: .9em;
     padding: 40px 0px;
   }
 
@@ -166,8 +166,8 @@
   }
 
   h3{
-    font-weight: bold;
     font-size: 1.4em;
+    font-weight: bold;
   }
 
   h4{
@@ -176,11 +176,11 @@
   }
 
   h6{
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: normal;
   }
 
-  .prim-chat p{
+  .race-party-chat p{
     font-family: 'Benton Sans';
     font-size: .9em;
   }
@@ -197,7 +197,10 @@
 
   .race-group, .race{
     clear: both;
-    margin-bottom: 100px;
+  }
+
+  .race-group{
+    padding-top: 50px;
   }
 
 
@@ -318,15 +321,24 @@
 }
 
 @media (max-width: 768px){
-  .results .race-party{
-    float: none;
-    width: 90%;
+  .results{
+    max-width: 525px;
     margin: auto;
+  }
+  .results .race-party{
+    width: 100%;
+    margin: auto;
+    float: none;
+  }
+
+  .results .race-party-table{
+    min-height: 100px;
   }
 
   .results .race-group .race-party:nth-child(odd){
     margin: auto;
   }
+
 }
 
 @media (max-width: 545px){
@@ -337,4 +349,10 @@
   .results-header #drop-nav{
     display: block;
   }
+
+  .results{
+    max-width: 95%;
+    margin: auto;
+  }
+
 }
