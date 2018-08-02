@@ -1,0 +1,55 @@
+<!-- TODO: Standarize on "office" not "race" -->
+<div class="race cf" id="{ id }">
+  {#if !loaded}
+    <div class="loading office-loading">Loading...</div>
+  {:else}
+    <h3 class="font-benton-sans">{ title }</h3>
+
+    {#each office as contest}
+      {#if !parties || (parties && ~parties.indexOf(contest.party.id))}
+        <Contest id="{ contest.id }" />
+      {/if}
+    {/each}
+  {/if}
+</div>
+
+<script>
+  // Dependencies and components
+  import Contest from "./_content-contest.svelte.html";
+
+  // Svelte logic
+  export default {
+    components: {
+      Contest
+    },
+
+    oncreate() {
+      // TODO: Handle no ID
+      if (!this.get().id) {
+        return;
+      }
+
+      window
+        .fetch(
+          `//static.startribune.com/elections/civix/mn-20180814/offices/${
+            this.get().id
+          }.json`
+        )
+        .then(response => {
+          return response.json();
+        })
+        .then(office => {
+          this.set({ office });
+          this.set({
+            title: office[0].office.title,
+            loaded: true
+          });
+        })
+        .catch(e => {
+          // TODO: Handle error
+          console.error(e);
+        });
+    }
+  };
+</script>
+
