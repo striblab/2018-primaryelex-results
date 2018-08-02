@@ -17,7 +17,7 @@ wget https://www2.census.gov/geo/tiger/GENZ2017/shp/cb_2017_us_county_500k.zip &
   mapshaper - -filter "STATEFP == '27'" -quiet -o ./cb_2017_us_county_500k.json format=geojson && \
   cat cb_2017_us_county_500k.json | \
   geoproject 'd3.geoAlbersUsa()' | \
-  geoproject 'd3.geoIdentity().reflectY(false).fitSize([500, 500], d)' | \
+  geoproject 'd3.geoIdentity().reflectY(false).fitSize([400, 400], d)' | \
   geo2topo counties=- | \
   toposimplify -f -p 0.05 | \
   topoquantize 1e5 > ./mncounties.json && \
