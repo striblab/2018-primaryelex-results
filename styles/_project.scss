@@ -285,18 +285,18 @@
 
     //Winners
 
-    td.winner{
-     min-width: 17px;
-     padding: .5em .2em .5em .5em;
-     font-size: .8em;
-    }
-
     tr.winner{
       background-color: #f5f5f5;
     }
 
     tr.winner td.cand{
       font-weight: bold;
+    }
+
+    td.winner{
+     min-width: 17px;
+     padding: .5em .2em .5em .5em;
+     font-size: .8em;
     }
 
 
@@ -311,10 +311,12 @@
   }
 
   .uncontested tr td{
-    background-color: #eee;
+    background-color: #f5f5f5;
   }
 
-
+footer{
+  padding-top: 350px;
+}
 
 }
 
