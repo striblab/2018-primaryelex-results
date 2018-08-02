@@ -171,7 +171,7 @@
   }
 
   h4{
-    font-size: 1.1em;
+    font-size: 1em;
     font-weight: bold;
   }
 
@@ -228,16 +228,6 @@
     vertical-align: middle;
   }
 
-  th.winner{
-    visibility:hidden;
-  }
-
-  td.winner{
-   min-width: 17px;
-   padding: .5em .2em .5em .5em;
-   font-size: .8em;
-  }
-
   .cand{
     padding-left: 0px;
   }
@@ -292,6 +282,23 @@
 
 
   //RACE STYLE EXCEPTIONS
+
+    //Winners
+
+    td.winner{
+     min-width: 17px;
+     padding: .5em .2em .5em .5em;
+     font-size: .8em;
+    }
+
+    tr.winner{
+      background-color: #f5f5f5;
+    }
+
+    tr.winner td.cand{
+      font-weight: bold;
+    }
+
 
     //Uncontested
 
