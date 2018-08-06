@@ -40,7 +40,7 @@
     font-size: 0.9em;
   }
 
-  .race-group .race-party:nth-child(odd) {
+   .race-party:nth-child(odd) {
     margin-left: 8%;
 
     @media (max-width: 768px) {
@@ -95,6 +95,10 @@
     font-size: 0.9em;
     border-bottom: 1px solid #eeeeee;
     vertical-align: middle;
+  }
+
+  tr.test-data{
+    background-color: lime;
   }
 
   .cand {
@@ -172,7 +176,7 @@
   }
 
   td.winner {
-    min-width: 17px;
+    width: 18px;
     padding: 0.5em 0.2em 0.5em 0.5em;
     font-size: 0.8em;
   }
@@ -180,11 +184,12 @@
   //Uncontested
 
   .uncontested th.votes,
-  .uncontested th.pct {
+  .uncontested th.pct, {
     visibility: hidden;
   }
 
   .uncontested .bar .pctBar {
+    width: 0px;
     min-width: 0px;
   }
 
