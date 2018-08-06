@@ -124,7 +124,14 @@
     height: 5px;
     border-radius: 2px;
     min-width: 2px;
-    background-color: black;
+  }
+
+  .party-dem .pctBar{
+    background-color: #0258A0;
+  }
+
+  .party-rep .pctBar{
+    background-color: #C0272D;
   }
 
   .reporting {
