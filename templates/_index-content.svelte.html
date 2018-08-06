@@ -5,7 +5,7 @@
   <section class="results container-lg">
     <p class="lead-in"><span>Races to watch:</span> Talk to trees, look at the birds. Whatever it takes. It's a very cold picture, I may have to go get my coat. It’s about to freeze me to death. A beautiful little sunset. Let's put some highlights on these little trees. The sun wouldn't forget them. Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
 
-    <Office id="mn-governor" parties="{ ['dfl', 'dem', 'rep'] }" />
+    <Office id="mn-governor" name="mn-governor" parties="{ ['dfl', 'dem', 'rep'] }" />
 
     <Body id="mn-us-senate" parties="{ ['dfl', 'dem', 'rep'] }" />
 
@@ -15,7 +15,7 @@
 
     <Office id="mn-auditor" parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Office id="mn-secretaryof-state" parties="{ ['dfl', 'dem', 'rep'] }" />
+    <Office id="mn-secretaryof-state" name="mn-secretaryof-state" parties="{ ['dfl', 'dem', 'rep'] }" />
 
     <Body id="mn-state-house" parties="{ ['dfl', 'dem', 'rep'] }" />
 
@@ -37,6 +37,25 @@
       Header,
       Office,
       Body
+    },
+    oncreate: function(){
+            // When the user scrolls the page, execute myFunction 
+      window.onscroll = function() {stickyNav()};
+
+      // Get the navbar
+      var navbar = document.getElementById("navigation");
+
+      // Get the offset position of the navbar
+      var sticky = navbar.offsetTop;
+
+      // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+      function stickyNav() {
+        if (window.pageYOffset >= sticky) {
+          navbar.classList.add("sticky")
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      }
     }
   };
 </script>
