@@ -1,13 +1,13 @@
 <!-- TODO: Standarize on "office" not "race" -->
-<div class="race cf" id="{ id }">
+<div class="race cf type-{ voteType } { partisan ? 'partisan' : 'nonpartisan' }" id="{ id }">
   {#if !loaded}
     <div class="loading office-loading">Loading...</div>
   {:else}
     <h3 class="font-benton-sans">{ title }</h3>
 
-    {#each office as contest}
+    {#each contests as contest}
       {#if !parties || (parties && ~parties.indexOf(contest.party.id))}
-        <Contest id="{ contest.id }" />
+        <Contest id="{ contest.id }" {...contest} embedded="{ true }" loaded="{ loaded }" />
       {/if}
     {/each}
   {/if}
@@ -16,6 +16,7 @@
 <script>
   // Dependencies and components
   import Contest from "./_content-contest.svelte.html";
+  import { isArray } from "lodash";
 
   // Svelte logic
   export default {
@@ -24,32 +25,50 @@
     },
 
     oncreate() {
-      // TODO: Handle no ID
-      if (!this.get().id) {
-        return;
-      }
+      this.fetchData();
+    },
 
-      window
-        .fetch(
-          `//static.startribune.com/elections/civix/mn-20180814/offices/${
-            this.get().id
-          }.json`
-        )
-        .then(response => {
-          return response.json();
-        })
-        .then(office => {
-          this.set({ office });
-          this.set({
-            title: office[0].office.title,
-            loaded: true
+    methods: {
+      fetchData() {
+        // TODO: Handle no ID
+        if (!this.get().id) {
+          return;
+        }
+
+        // If embedded, data is managed some other way
+        if (this.get().embedded) {
+          return;
+        }
+
+        // Mark as loading
+        this.set({ loading: true });
+
+        // Fetch
+        window
+          .fetch(
+            `${this.store.get().civixEndpoint}/contests/by-office/${
+              this.get().id
+            }.json`
+          )
+          .then(response => {
+            return response.json();
+          })
+          .then(office => {
+            if (isArray(office)) {
+              office = {
+                contests: office
+              };
+            }
+
+            this.set(office);
+            this.set({ loaded: true, loading: false });
+          })
+          .catch(e => {
+            // TODO: Handle error
+            console.error(e);
+            this.set({ loading: false });
           });
-        })
-        .catch(e => {
-          // TODO: Handle error
-          console.error(e);
-        });
+      }
     }
   };
 </script>
-

@@ -1,13 +1,13 @@
 <!-- TODO: Standardize on "body" term -->
-<div class="race-level" id="C">
+<div class="race-level" id="{ id }">
   <div class="race-group">
     {#if !loaded}
       <div class="loading contest-loading">Loading...</div>
     {:else}
       <h3 class="font-benton-sans">{ title }</h3>
 
-      {#each Object.entries(bodies) as [officeId, office]}
-        <Office id="{ officeId }" parties="{ parties }" />
+      {#each Object.entries(offices) as [officeId, office]}
+        <Office id="{ officeId }" {...office} parties="{ parties }" embedded="{ true }" loaded="{ loaded }" />
       {/each}
     {/if}
   </div>
@@ -16,7 +16,7 @@
 <script>
   // Dependencies and components
   import Office from "./_content-office.svelte.html";
-  import { groupBy } from "lodash";
+  import { groupBy, isArray, mapValues } from "lodash";
 
   // Svelte logic
   export default {
@@ -25,33 +25,52 @@
     },
 
     oncreate() {
-      // TODO: Handle no ID
-      if (!this.get().id) {
-        return;
-      }
+      this.fetchData();
+    },
 
-      window
-        .fetch(
-          `//static.startribune.com/elections/civix/mn-20180814/bodies/${
-            this.get().id
-          }.json`
-        )
-        .then(response => {
-          return response.json();
-        })
-        .then(body => {
-          this.set({
-            // Group by office
-            bodies: groupBy(body, b => b.office.id),
-            // TODO: Get body title (needs API update)
-            title: body[0].office.body_id,
-            loaded: true
+    methods: {
+      fetchData() {
+        // TODO: Handle no ID
+        if (!this.get().id) {
+          return;
+        }
+
+        // If embedded, data is managed some other way
+        if (this.get().embedded) {
+          return;
+        }
+
+        // Mark as loading
+        this.set({ loading: true });
+
+        // Fetch
+        window
+          .fetch(
+            `${this.store.get().civixEndpoint}/contests/by-body/${
+              this.get().id
+            }.json`
+          )
+          .then(response => {
+            return response.json();
+          })
+          .then(body => {
+            if (isArray(body)) {
+              body = {
+                offices: mapValues(groupBy(body, "office_id"), g => {
+                  return { contests: g };
+                })
+              };
+            }
+
+            this.set(body);
+            this.set({ loaded: true, loading: false });
+          })
+          .catch(e => {
+            // TODO: Handle error
+            console.error(e);
+            this.set({ loading: false });
           });
-        })
-        .catch(e => {
-          // TODO: Handle error
-          console.error(e);
-        });
+      }
     }
   };
 </script>

@@ -76,9 +76,13 @@
     </div>
   </div>
 {:else}
-  <div class="race-party party-{ party.id } contest-{ id } { uncontested ? 'uncontested' : '' }" id="{ id }">
+  <div class="race-party { !party || party.id === 'np' ? 'non-partisan' : '' }
+    party-{ party ? party.id : 'np' } contest-{ id }
+    { uncontested ? 'uncontested' : '' }" id="{ id }">
     <div class="race-party-chat">
-      <h6>{ title }</h6>
+      {#if party || !embedded}
+        <h6>{ title }</h6>
+      {/if}
 
 <!--       <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p> -->
     </div>
@@ -109,7 +113,7 @@
         </tbody>
       </table>
 
-      <div class="reporting">60% of precincts reporting</div>
+      <div class="reporting">{ round(percentReporting, 0) }% of precincts reporting</div>
     </div>
 
     <!-- <div id="r-gov-map" class="mapcanvas">
@@ -121,29 +125,40 @@
 <script>
   export default {
     oncreate() {
-      // Check for ID
-      if (!this.get().id) {
-        // TODO: Handle
-        return;
-      }
+      this.fetchData();
+    },
 
-      window
-        .fetch(
-          `//static.startribune.com/elections/civix/mn-20180814/contests/${
-            this.get().id
-          }.json`
-        )
-        .then(response => {
-          return response.json();
-        })
-        .then(contest => {
-          this.set(contest);
-          this.set({ loaded: true });
-        })
-        .catch(e => {
-          // TODO: Handle error
-          console.error(e);
-        });
+    methods: {
+      fetchData() {
+        // Check for ID
+        if (!this.get().id) {
+          // TODO: Handle
+          return;
+        }
+
+        // If embedded, data is managed some other way
+        if (this.get().embedded) {
+          return;
+        }
+
+        window
+          .fetch(
+            `${this.store.get().civixEndpoint}/contests/contests/${
+              this.get().id
+            }.json`
+          )
+          .then(response => {
+            return response.json();
+          })
+          .then(contest => {
+            this.set(contest);
+            this.set({ loaded: true });
+          })
+          .catch(e => {
+            // TODO: Handle error
+            console.error(e);
+          });
+      }
     },
 
     helpers: {
@@ -154,6 +169,16 @@
             Math.pow(10, decimals)
           );
         }
+      }
+    },
+
+    computed: {
+      percentReporting({ reporting, totalPrecincts }) {
+        if (totalPrecincts) {
+          return (reporting || 0) / totalPrecincts;
+        }
+
+        return 0;
       }
     }
   };
