@@ -115,12 +115,14 @@
   nav select option {
     text-transform: uppercase;
     font-weight: bold;
+    padding: 5px 0px 5px 0px;
   }
 
   nav select option.sub {
     text-indent: 5px;
     font-weight: normal;
-    text-transform: capitalize;
+    text-transform: uppercase;
+    letter-spacing: 10px;
   }
 
   #drop-nav {
