@@ -19,6 +19,7 @@
           <th class="bar"></th>
         </tr>
       </thead>
+
       <tbody>
         {#if !loaded}
           <tbody>
@@ -93,10 +94,12 @@
     },
 
     computed: {
-      supplementedTitle: ({ id, supplement, title }) => {
+      supplementedTitle: ({ id, supplement, title, party }) => {
         return supplement && id && supplement[id] && supplement[id].title
           ? supplement[id].title
-          : title || "-";
+          : party && party.id !== "np" && party.title
+            ? party.title
+            : title || "-";
       },
 
       percentReporting({ reporting, totalPrecincts }) {
