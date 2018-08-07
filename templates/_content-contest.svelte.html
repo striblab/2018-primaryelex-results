@@ -79,20 +79,17 @@
   <div class="race-party { !party || party.id === 'np' ? 'non-partisan' : '' }
     party-{ party ? party.id : 'np' } contest-{ id }
     { uncontested ? 'uncontested' : '' }" id="{ id }">
-    <div class="race-party-chat">
-      {#if party || !embedded}
-        <h6>{ title }</h6>
-      {/if}
-
-<!--       <p>Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p> -->
-    </div>
+    
+    {#if party || !embedded}
+      <h6>{ title }</h6>
+    {/if}
 
     <div class="race-party-table">
       <table>
         <thead>
           <tr>
             <th></th>
-            <th class="cand">Candidates</th>
+            <th class="cand">Candidate</th>
             <th class="votes">Votes</th>
             <th class="pct">Pct.</th>
             <th class="bar"></th>
@@ -103,11 +100,13 @@
             <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}">
               <td class="winner">{#if r.winner}&#10004;{/if}</td>
               <td class="cand">{ r.candidate.fullName }</td>
-              <td class="votes">{ r.votes.toLocaleString() }</td> 
-              <td class="pct">{ round(r.percent * 100) }%</td>
+              <td class="votes"><span>{ r.votes.toLocaleString() }</span></td> 
+              <td class="pct">{#if uncontested}<span class="uncontested">Uncontested</span>{/if}<span>{ round(r.percent * 100) }%</span></td>
               <td class="bar">
+                {#if reporting}
                 <span class="pctBar" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
-                </td>
+                {/if}
+              </td>
             </tr>
           {/each}
         </tbody>

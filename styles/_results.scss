@@ -2,6 +2,11 @@
 .results {
   max-width: 975px;
 
+  @media (max-width: 768px) {
+      max-width: 65%;
+      margin: auto;
+    }
+
   @media (max-width: 545px) {
     max-width: 95%;
     margin: auto;
@@ -26,7 +31,7 @@
   }
 
   h4 {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: bold;
   }
 
@@ -35,16 +40,30 @@
     font-weight: normal;
   }
 
-  .race-party-chat p {
+  p.timestamp{
     font-family: "Benton Sans";
-    font-size: 0.9em;
+    font-size: 0.6em;
+    color: #808080;
+    //font-style: italic;
+    text-transform: uppercase;
   }
 
-   .race-party:nth-child(odd) {
+  p.office-chat {
+    font-family: "Benton Sans";
+    font-size: 0.9em;
+    width: 46%;
+
+    @media (max-width: 768px){
+    width: 100%;
+    }
+  }
+
+   .race-party:nth-child(even) {
     margin-left: 8%;
 
     @media (max-width: 768px) {
       margin: auto;
+      margin-bottom: 25px;
     }
   }
 
@@ -56,6 +75,7 @@
     @media (max-width: 768px) {
       width: 100%;
       margin: auto;
+      margin-bottom: 25px;
       float: none;
     }
   }
@@ -65,16 +85,13 @@
     clear: both;
   }
 
-  .race-group {
-    padding-top: 50px;
+  .race{
+    margin-bottom: 2em;
   }
 
-  .race-party-table {
-    min-height: 225px;
 
-    @media (max-width: 768px) {
-      min-height: 100px;
-    }
+  .race-party-table {
+    min-height: 100px;
   }
 
   .race-party table {
@@ -98,7 +115,7 @@
   }
 
   tr.test-data{
-    background-color: lavender;
+    //background-color: lavender;
   }
 
   .cand {
@@ -121,6 +138,7 @@
     @media (max-width: 900px) {
       display: none;
     }
+
   }
 
   .bar .pctBar {
@@ -142,7 +160,6 @@
     font-size: 0.65em;
     color: #808080;
     font-style: italic;
-    margin-bottom: 2em;
   }
 
   .race-party .mapcanvas span {
@@ -184,17 +201,19 @@
   //Uncontested
 
   .uncontested th.votes,
-  .uncontested th.pct, {
+  .uncontested th.pct, 
+  .uncontested td.votes>span, 
+  .uncontested td.pct>span{
     visibility: hidden;
   }
 
-  .uncontested .bar .pctBar {
-    width: 0px;
-    min-width: 0px;
+  .uncontested td.pct>span.uncontested{
+    visibility: visible; 
+    font-size: .75em;
   }
 
-  .uncontested tr td {
-    background-color: #f5f5f5;
+  .uncontested .bar {
+    width: 5%;
   }
 
   footer {
