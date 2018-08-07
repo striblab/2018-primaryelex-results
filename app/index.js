@@ -3,12 +3,11 @@ import Content from '../templates/_index-content.svelte.html';
 import { Store } from 'svelte/store.js';
 import supplement from '../assets/data/results-supplement.json';
 
-console.log(supplement);
-
 // Create global store for UI
 const store = new Store({
   // No trailing slash
-  civixEndpoint: '//static.startribune.com/elections/civix-test/mn-20180814'
+  civixEndpoint: '//static.startribune.com/elections/civix-test/mn-20180814',
+  interval: 60 * 1000
 });
 
 // Create UI
