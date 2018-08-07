@@ -115,14 +115,14 @@
   }
 
   tr.test-data{
-    //background-color: lavender;
+    background-color: #ff6933;
   }
 
   .cand {
     padding-left: 0px;
   }
 
-  .cand .inc {
+  .cand>span {
     font-size: 0.8em;
     padding-left: 5px;
   }
