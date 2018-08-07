@@ -27,6 +27,7 @@
     left: 0;
     top: 0;
     width: 100%;
+    padding-top: 20px;
   }
 
   nav ul{
@@ -34,6 +35,11 @@
     display: block;
     text-align: center;
     margin: 60px auto 20px auto;
+  }
+
+  .sticky nav ul{
+    max-width: 900px;
+    margin: 0px auto 20px auto;
   }
 
   nav ul li.main-nav{
@@ -101,8 +107,7 @@
   nav.visible-phone {
     position: relative;
     font-family: "Benton Sans";
-    min-width: 50%;
-    max-width: 80%;
+    max-width: 70%;
     margin: auto;
     cursor: pointer;
   }
