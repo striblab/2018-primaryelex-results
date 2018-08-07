@@ -1,86 +1,16 @@
 <!-- TODO: Standarize on "office" not "race" -->
 <div class="race cf type-{ voteType } { partisan ? 'partisan' : 'nonpartisan' }" id="{ id }">
+  <h4 class="font-benton-sans">{ title || '-' }</h4>
+  <div class="office-details">
+    <p class="timestamp">Last updated: { updatedDate ? makeDate(updatedDate) : '-' }</p>
+    <p class="office-chat">Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+  </div>
+
   {#if !loaded}
-    <div class="loading office-loading">
-        <div class="race-party-table">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th class="cand">Candidates</th>
-              <th class="votes">Votes</th>
-              <th class="pct">Pct.</th>
-              <th class="bar"></th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="race-party-table">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th class="cand">Candidates</th>
-              <th class="votes">Votes</th>
-              <th class="pct">Pct.</th>
-              <th class="bar"></th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    {#each (new Array(2)) as blank}
+      <Contest embedded="{ true }" loaded="{ false }" />
+    {/each}
   {:else}
-    <h4 class="font-benton-sans">{ title }</h4>
-    <div class="office-details">
-      <p class="timestamp">Last updated: </p>
-      <p class="office-chat">Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
-    </div>
     {#each contests as contest}
       {#if !parties || (parties && ~parties.indexOf(contest.party.id))}
         <Contest id="{ contest.id }" {...contest} embedded="{ true }" loaded="{ loaded }" />
@@ -102,6 +32,25 @@
 
     oncreate() {
       this.fetchData();
+    },
+
+    helpers: {
+      makeDate: date => {
+        return date.toString();
+      }
+    },
+
+    computed: {
+      updatedDate: ({ contests }) => {
+        if (!contests) {
+          return;
+        }
+
+        // TODO: Get newest/oldest date
+        return (
+          contests[0].results[0].apUpdated || contests[0].results[0].last_updated
+        );
+      }
     },
 
     methods: {
