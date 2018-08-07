@@ -1,84 +1,13 @@
 <!-- TODO: Standardize on "body" term -->
 <div class="race-level" id="{ id }">
   <div class="race-group">
-    {#if !loaded}
-      <div class="loading contest-loading">
-        <div class="race-party-table">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th class="cand">Candidates</th>
-              <th class="votes">Votes</th>
-              <th class="pct">Pct.</th>
-              <th class="bar"></th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="race-party-table">
-        <table>
-          <thead>
-            <tr>
-              <th></th>
-              <th class="cand">Candidates</th>
-              <th class="votes">Votes</th>
-              <th class="pct">Pct.</th>
-              <th class="bar"></th>
-            </tr>
-          </thead>
-          <tbody>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-              <tr>
-                <td class="winner"></td>
-                <td class="cand">Loading ...</td>
-                <td class="votes"></td>
-                <td class="pct">%</td>
-                <td class="bar"></td>
-              </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    {:else}
-      <h3 class="font-benton-sans">{ title }</h3>
+    <h3 class="font-benton-sans">{ title || '-' }</h3>
 
+    {#if !loaded}
+      {#each (new Array(likelyOffices || 3)) as blank}
+        <Office embedded="{ true }" loaded="{ false }" />
+      {/each}
+    {:else}
       {#each Object.entries(offices) as [officeId, office]}
         <Office id="{ officeId }" {...office} parties="{ parties }" embedded="{ true }" loaded="{ loaded }" />
       {/each}

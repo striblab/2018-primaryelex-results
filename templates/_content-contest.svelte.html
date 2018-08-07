@@ -1,125 +1,68 @@
 <!-- TODO: Standardize use of "race" and "contest" -->
 
-{#if !loaded}
-  <div class="loading contest-loading">
-    <div class="race-party-table">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="cand">Candidates</th>
-            <th class="votes">Votes</th>
-            <th class="pct">Pct.</th>
-            <th class="bar"></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
-    <div class="race-party-table">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="cand">Candidates</th>
-            <th class="votes">Votes</th>
-            <th class="pct">Pct.</th>
-            <th class="bar"></th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-            <tr>
-              <td class="winner"></td>
-              <td class="cand">Loading ...</td>
-              <td class="votes"></td>
-              <td class="pct">%</td>
-              <td class="bar"></td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-{:else}
-  <div class="race-party { !party || party.id === 'np' ? 'non-partisan' : '' }
-    party-{ party ? party.id : 'np' } contest-{ id }
-    { uncontested ? 'uncontested' : '' }" id="{ id }">
-    
-    {#if party || !embedded}
-      <h6>{ title }</h6>
-    {/if}
+<div class="race-party { !party || party.id === 'np' ? 'non-partisan' : '' }
+  party-{ party ? party.id : 'np' } contest-{ id }
+  { uncontested ? 'uncontested' : '' }" id="{ id }">
 
-    <div class="race-party-table">
-      <table>
-        <thead>
-          <tr>
-            <th></th>
-            <th class="cand">Candidate</th>
-            <th class="votes">Votes</th>
-            <th class="pct">Pct.</th>
-            <th class="bar"></th>
-          </tr>
-        </thead>
-        <tbody>
+  {#if party || !embedded}
+    <h6>{ title || '-' }</h6>
+  {/if}
+
+  <div class="race-party-table">
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="cand">Candidate</th>
+          <th class="votes">Votes</th>
+          <th class="pct">Pct.</th>
+          <th class="bar"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {#if !loaded}
+          <tbody>
+            {#each (new Array(2)) as blank}
+              <tr>
+                <td class="winner"></td>
+                <td class="cand">Loading ...</td>
+                <td class="votes"></td>
+                <td class="pct">%</td>
+                <td class="bar"></td>
+              </tr>
+            {/each}
+          </tbody>
+        {:else}
           {#each results as r}
             <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}">
               <td class="winner">{#if r.winner}&#10004;{/if}</td>
               <td class="cand">{ r.candidate.fullName }{#if r.incumbent}<span>(i)</span>{/if}</td>
-              <td class="votes"><span>{ r.votes.toLocaleString() }</span></td> 
+              <td class="votes"><span>{ r.votes.toLocaleString() }</span></td>
               <td class="pct">{#if uncontested}<span class="uncontested">Uncontested</span>{/if}<span>{ round(r.percent * 100) }%</span></td>
               <td class="bar">
                 {#if reporting}
-                <span class="pctBar" style="width:{ (r.percent / results[0].percent) * 100 }%;"></span>
+                  <span class="pctBar" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
                 {/if}
               </td>
             </tr>
           {/each}
-        </tbody>
-      </table>
+        {/if}
+      </tbody>
+    </table>
 
-      <div class="reporting">{ round(percentReporting, 0) }% of precincts reporting</div>
+    <div class="reporting">
+      {#if loaded}
+        { round(percentReporting * 100, 0) }% of precincts reporting
+      {:else}
+        -
+      {/if}
     </div>
-
-    <!-- <div id="r-gov-map" class="mapcanvas">
-      <svg width="400" height="400"></svg>
-    </div> -->
   </div>
-{/if}
+
+  <!-- <div id="r-gov-map" class="mapcanvas">
+    <svg width="400" height="400"></svg>
+  </div> -->
+</div>
 
 <script>
   export default {
