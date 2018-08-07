@@ -1,15 +1,28 @@
 <!-- TODO: Standardize on "body" term -->
 <div class="race-level" id="{ id }">
   <div class="race-group">
-    <h3 class="font-benton-sans">{ title || '-' }</h3>
+    <h3 class="font-benton-sans">{ supplementedTitle }</h3>
+
+    {#if description}
+      <p class="body-chat">{ @html description }</p>
+    {/if}
 
     {#if !loaded}
       {#each (new Array(likelyOffices || 3)) as blank}
-        <Office embedded="{ true }" loaded="{ false }" />
+        <Office
+          embedded="{ true }"
+          loaded="{ false }"
+          supplement="{ supplement }" />
       {/each}
     {:else}
       {#each Object.entries(offices) as [officeId, office]}
-        <Office id="{ officeId }" {...office} parties="{ parties }" embedded="{ true }" loaded="{ loaded }" />
+        <Office
+          id="{ officeId }"
+          {...office}
+          parties="{ parties }"
+          embedded="{ true }"
+          loaded="{ loaded }"
+          supplement="{ supplement }" />
       {/each}
     {/if}
   </div>
@@ -28,6 +41,20 @@
 
     oncreate() {
       this.fetchData();
+    },
+
+    computed: {
+      supplementedTitle: ({ id, supplement, title }) => {
+        return supplement && id && supplement[id] && supplement[id].title
+          ? supplement[id].title
+          : title || "-";
+      },
+
+      description: ({ id, supplement }) => {
+        return supplement && id && supplement[id] && supplement[id].description
+          ? supplement[id].description
+          : undefined;
+      }
     },
 
     methods: {

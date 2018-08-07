@@ -1,19 +1,29 @@
 <!-- TODO: Standarize on "office" not "race" -->
 <div class="race cf type-{ voteType } { partisan ? 'partisan' : 'nonpartisan' }" id="{ id }">
-  <h4 class="font-benton-sans">{ title || '-' }</h4>
+  <h4 class="font-benton-sans">{ supplementedTitle }</h4>
   <div class="office-details">
     <p class="timestamp">Last updated: { updatedDate ? makeDate(updatedDate) : '-' }</p>
-    <p class="office-chat">Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
+
+    {#if description}
+      <p class="office-chat">{@html description }</p>
+    {/if}
   </div>
 
   {#if !loaded}
     {#each (new Array(2)) as blank}
-      <Contest embedded="{ true }" loaded="{ false }" />
+      <Contest
+        embedded="{ true }"
+        loaded="{ false }"
+        supplement="{ supplement }" />
     {/each}
   {:else}
     {#each contests as contest}
       {#if !parties || (parties && ~parties.indexOf(contest.party.id))}
-        <Contest id="{ contest.id }" {...contest} embedded="{ true }" loaded="{ loaded }" />
+        <Contest id="{ contest.id }"
+          {...contest}
+          embedded="{ true }"
+          loaded="{ loaded }"
+          supplement="{ supplement }" />
       {/if}
     {/each}
   {/if}
@@ -47,6 +57,18 @@
     },
 
     computed: {
+      supplementedTitle: ({ id, supplement, title }) => {
+        return supplement && id && supplement[id] && supplement[id].title
+          ? supplement[id].title
+          : title || "-";
+      },
+
+      description: ({ id, supplement }) => {
+        return supplement && id && supplement[id] && supplement[id].description
+          ? supplement[id].description
+          : undefined;
+      },
+
       updatedDate: ({ contests }) => {
         if (!contests) {
           return;

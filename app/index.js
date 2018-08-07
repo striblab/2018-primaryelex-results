@@ -1,6 +1,9 @@
 // Utilize templates on the client.  Get the main content template.
 import Content from '../templates/_index-content.svelte.html';
 import { Store } from 'svelte/store.js';
+import supplement from '../assets/data/results-supplement.json';
+
+console.log(supplement);
 
 // Create global store for UI
 const store = new Store({
@@ -12,7 +15,9 @@ const store = new Store({
 const app = new Content({
   target: document.querySelector('.article-lcd-body-content'),
   hydrate: true,
-  data: {},
+  data: {
+    supplement
+  },
   store
 });
 

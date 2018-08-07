@@ -5,7 +5,7 @@
   { uncontested ? 'uncontested' : '' }" id="{ id }">
 
   {#if party || !embedded}
-    <h6>{ title || '-' }</h6>
+    <h6>{ supplementedTitle }</h6>
   {/if}
 
   <div class="race-party-table">
@@ -70,6 +70,33 @@
       this.fetchData();
     },
 
+    helpers: {
+      round(input, decimals = 1) {
+        if (parseFloat(input) !== NaN) {
+          return (
+            Math.round(parseFloat(input) * Math.pow(10, decimals)) /
+            Math.pow(10, decimals)
+          );
+        }
+      }
+    },
+
+    computed: {
+      supplementedTitle: ({ id, supplement, title }) => {
+        return supplement && id && supplement[id] && supplement[id].title
+          ? supplement[id].title
+          : title || "-";
+      },
+
+      percentReporting({ reporting, totalPrecincts }) {
+        if (totalPrecincts) {
+          return (reporting || 0) / totalPrecincts;
+        }
+
+        return 0;
+      }
+    },
+
     methods: {
       fetchData() {
         // Check for ID
@@ -100,27 +127,6 @@
             // TODO: Handle error
             console.error(e);
           });
-      }
-    },
-
-    helpers: {
-      round(input, decimals = 1) {
-        if (parseFloat(input) !== NaN) {
-          return (
-            Math.round(parseFloat(input) * Math.pow(10, decimals)) /
-            Math.pow(10, decimals)
-          );
-        }
-      }
-    },
-
-    computed: {
-      percentReporting({ reporting, totalPrecincts }) {
-        if (totalPrecincts) {
-          return (reporting || 0) / totalPrecincts;
-        }
-
-        return 0;
       }
     }
   };
