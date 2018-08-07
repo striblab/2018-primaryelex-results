@@ -41,7 +41,7 @@
               <td class="pct">{#if uncontested}<span class="uncontested">Uncontested</span>{/if}<span>{ round(r.percent * 100) }%</span></td>
               <td class="bar">
                 {#if reporting}
-                <span class="pctBar" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
+                  <span class="pctBar" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
                 {/if}
               </td>
             </tr>
@@ -52,7 +52,7 @@
 
     <div class="reporting">
       {#if loaded}
-        { round(percentReporting, 0) }% of precincts reporting
+        { round(percentReporting * 100, 0) }% of precincts reporting
       {:else}
         -
       {/if}
