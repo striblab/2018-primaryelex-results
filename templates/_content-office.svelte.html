@@ -20,6 +20,7 @@
 </div>
 
 <script>
+  /* global moment */
   // Dependencies and components
   import Contest from "./_content-contest.svelte.html";
   import { isArray } from "lodash";
@@ -35,8 +36,13 @@
     },
 
     helpers: {
-      makeDate: date => {
-        return date.toString();
+      makeDate: (date, format) => {
+        let m = moment(date);
+        if (!m || !m.isValid()) {
+          return "";
+        }
+
+        return m.format("h:mm a");
       }
     },
 
