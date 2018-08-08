@@ -1,10 +1,40 @@
 
 <div class="contest-county-map">
+  <div class="county-map-tooltip { tooltipActive ? 'tooltip-active' : '' }">
+    <h4>{ toolTipResults ? toolTipResults.countyName : '' }</h4>
+    <table>
+      <thead>
+        <tr>
+          <th><span class="sr-only">Winner</span></th>
+          <th>Candidate</th>
+          <th>Percent</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {#if toolTipResults}
+          {#each toolTipResults as result}
+            <tr>
+              <td>{#if result.winner}&#10004;{/if}</td>
+              <td>{ keyedResults[result.candidate_id].candidate.last }</td>
+              <td>{ result.percent }</td>
+            </tr>
+          {/each}
+        {/if}
+      </tbody>
+    </table>
+  </div>
+
   <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;">
     <g class="counties">
       {#if $mnCountiesGeo}
         {#each $mnCountiesGeo as feature}
-          <path d="{ countyPath(feature) }" class="county-path { pathClass(feature, subResults, keyedResults) }"></path>
+          <path
+            d="{ countyPath(feature) }"
+            class="county-path { pathClass(feature, subResults, keyedResults) }"
+            on:mouseover="showTooltip(event, feature)"
+            on:mouseout="hideTooltip(event)">
+          </path>
         {/each}
       {/if}
     </g>
@@ -58,6 +88,30 @@
             return f;
           });
         }
+      }
+    },
+
+    methods: {
+      showTooltip(event, feature) {
+        let { subResults } = this.get();
+
+        if (feature && feature.properties) {
+          let countyResults =
+            subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
+          countyResults.countyName = feature.properties.NAME;
+
+          this.set({
+            tooltipActive: true,
+            toolTipResults: countyResults
+          });
+        }
+      },
+
+      hideTooltip(event) {
+        this.set({
+          tooltipActive: false,
+          toolTipResults: undefined
+        });
       }
     }
   };

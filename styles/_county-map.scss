@@ -2,12 +2,17 @@
  * County map and colors.
  */
 
-$demColors: #82bae0, #b9ee7d, #ce91e9, #9084c3, #65c0b0;
-$repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
+$demColors: #82BAE0, #B9EE7D, #CE91E9, #9084C3, #65C0B0;
+$repColors: #EB6868, #F9F37C, #FBA363, #F695BE, #FC9E8A;
 
 .has-county-map {
   .contest-county-map {
     padding-top: 2em;
+    position: relative;
+  }
+
+  .county-path:hover {
+    cursor: pointer;
   }
 
   // A bit hacky, and probaly needs some adjustment
@@ -27,12 +32,9 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
         background-color: $c;
       }
 
+      &.is-reporting .county-reporting.county-leader-#{$index - 1},
       &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
-        fill: lighten($c, 25);
       }
     }
   }
@@ -46,13 +48,25 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
         background-color: $c;
       }
 
+      &.is-reporting .county-reporting.county-leader-#{$index - 1},
       &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
       }
+    }
+  }
 
-      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
-        fill: lighten($c, 25);
-      }
+  .county-map-tooltip {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    font-size: 0.85em;
+    background-color: #FFFFFF;
+
+    &.tooltip-active {
+      display: block;
     }
   }
 }
