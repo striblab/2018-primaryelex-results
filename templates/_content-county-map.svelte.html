@@ -28,7 +28,21 @@
         let countyResults =
           subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
         let contestResult = keyedResults[countyResults[0].candidate_id];
-        return `county-leader-${contestResult ? contestResult.indexId : "none"}`;
+        let reporting =
+          countyResults.resultDetails &&
+          countyResults.resultDetails.totalPrecincts
+            ? countyResults.resultDetails.reporting /
+              countyResults.resultDetails.totalPrecincts
+            : 0;
+
+        console.log(countyResults);
+        return `county-leader-${contestResult ? contestResult.indexId : "none"} ${
+          reporting && reporting < 1
+            ? "county-reporting"
+            : reporting && reporting === 1
+              ? "county-fully-reported"
+              : "county-no-reporting"
+        }`;
       }
     },
 

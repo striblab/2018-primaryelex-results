@@ -27,8 +27,12 @@ $repColors: #942011, #F76D50, #FDB430, #FFE8A0, #177501;
         background-color: $c;
       }
 
-      &.is-reporting .county-leader-#{$index - 1} {
+      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
+      }
+
+      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
+        fill: lighten($c, 25);
       }
     }
   }
@@ -42,8 +46,12 @@ $repColors: #942011, #F76D50, #FDB430, #FFE8A0, #177501;
         background-color: $c;
       }
 
-      &.is-reporting .county-leader-#{$index - 1} {
+      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
+      }
+
+      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
+        fill: lighten($c, 25);
       }
     }
   }
