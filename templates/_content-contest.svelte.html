@@ -171,7 +171,6 @@
             return response.json();
           })
           .then(contest => {
-            console.log(contest);
             this.set(contest);
             this.set({ loaded: true });
           })
