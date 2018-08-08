@@ -158,7 +158,7 @@
   }
 
   .party-np .pctBar{
-    background-color: #A9A9A9;
+    background-color: #808080;
   }
 
   .reporting {
@@ -197,6 +197,10 @@
     font-weight: bold;
   }
 
+  tr.winner td.cand>span{
+    font-weight: normal;
+  }
+
   td.winner {
     width: 18px;
     padding: 0.5em 0.2em 0.5em 0.5em;
@@ -221,7 +225,15 @@
     width: 5%;
   }
 
+  .credits p{
+  font-family: "Benton Sans";
+  font-size: .8em; 
+  color: #808080;
+}
+
   footer {
     padding-top: 350px;
   }
 }
+
+
