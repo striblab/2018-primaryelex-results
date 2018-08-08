@@ -233,6 +233,12 @@
     width: 46%;
     float: right;
 
+    @media (max-width: 768px){
+      float: none;
+      width: 100%;
+    }
+
+
     tbody td{
       font-size: .78em;
     }
