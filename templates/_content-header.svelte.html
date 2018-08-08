@@ -1,10 +1,12 @@
 <header class="results-header container-lg">
   <h5 class="font-popular-light">Live Results</h5>
   <h1>2018 Minnesota primary election results</h1>
-  <!-- share -->
 
-  <!-- NAVIGATION -->
-  <div id="navigation">
+  <div class="share-placeholder">
+    <!-- share -->
+  </div>
+
+  <div id="navigation" ref:navigation>
     <nav id="button-nav" class="hidden-phone">
       <ul>
         <li class="main-nav"><a href="#mn-governor">Governor</a></li>
@@ -15,6 +17,7 @@
             <a href="#mn-us-house"><li>U.S. House</li></a>
           </ul>
         </li>
+
         <li class="main-nav">
           <a href="#mn-attorney-general">State<span><img src="../assets/images/navcaret.svg"></span></a>
           <ul class="nav-dropdown">
@@ -25,6 +28,7 @@
             <a href="#mn-district-court"><li>Judiciary</li></a>
           </ul>
         </li>
+
         <li class="main-nav">
           <a href="#L">Local<span><img src="../assets/images/navcaret.svg"></span></a>
           <ul class="nav-dropdown">
@@ -55,9 +59,41 @@
       </select>
     </nav>
   </div>
-
 </header>
 
 <script>
-  export default {};
+  import { throttle } from "lodash";
+
+  export default {
+    oncreate() {
+      // Mark navigation top
+      this.set({
+        navigationTop: this.refs.navigation.offsetTop
+      });
+
+      // Make throttled updated
+      this.throttledUpdateStickyNav = throttle(() => {
+        this.updateStickyNav();
+      }, 50);
+
+      // Add to scroll event
+      window.addEventListener("scroll", this.throttledUpdateStickyNav);
+    },
+
+    ondestroy() {
+      if (this.throttledUpdateStickyNav) {
+        window.removeEventListener("scroll", this.throttledUpdateStickyNav);
+      }
+    },
+
+    methods: {
+      updateStickyNav() {
+        if (window.pageYOffset >= this.get().navigationTop) {
+          this.refs.navigation.classList.add("sticky");
+        } else {
+          this.refs.navigation.classList.remove("sticky");
+        }
+      }
+    }
+  };
 </script>

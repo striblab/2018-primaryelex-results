@@ -66,23 +66,7 @@
       Office,
       Body
     },
-    // Sticky top nav
-    oncreate: function() {
-      window.onscroll = function() {
-        stickyNav();
-      };
 
-      var navbar = document.getElementById("navigation");
-
-      var sticky = navbar.offsetTop;
-
-      function stickyNav() {
-        if (window.pageYOffset >= sticky) {
-          navbar.classList.add("sticky");
-        } else {
-          navbar.classList.remove("sticky");
-        }
-      }
-    }
+    oncreate: function() {}
   };
 </script>
