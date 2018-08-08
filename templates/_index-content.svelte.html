@@ -5,6 +5,57 @@
   <section class="results container-lg">
     <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years (CX this). </p>
 
+<!--     <div class="race-party
+      { !party || party.id === 'np' ? 'non-partisan' : '' }
+      party-{ party ? party.id : 'np' } contest-{ id }
+      { uncontested ? 'uncontested' : '' }
+      { countyMap ? 'has-county-map' : '' }
+      { reporting && reporting > 0 ? 'is-reporting' : '' }" id="{ id }">
+
+      <h6>Uncontested [race type] seats</h6>
+
+      <div class="race-party-table">
+        <table>
+          <thead>
+            <tr>
+              <th></th>
+              <th class="dist">District</th>
+              <td class="seat"></td>
+              <th class="party">Party</th>
+              <th class="cand">Candidate</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {#if !loaded}
+              <tbody>
+                {#each (new Array(2)) as blank}
+                  <tr>
+                    <td class="winner"></td>
+                    <td class="dist"></td>
+                    <td class="seat"></td>
+                    <td class="party"></td>
+                    <td class="cand">Loading ...</td>
+                  </tr>
+                {/each}
+              </tbody>
+            {:else}
+              {#each results as r, ri}
+                <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}">
+                  <td class="winner">{#if r.winner}&#10004;{/if}</td>
+                  <td class="dist">{ r. }</td>
+                  <td class="seat"></td>
+                  <td class="party"><span>{}</span></td>
+                  <td class="cand">{ r.candidate.fullName }{#if r.incumbent}<span>(i)</span>{/if}</td>
+                </tr>
+              {/each}
+            {/if}
+          </tbody>
+        </table>
+      </div>
+    </div> -->
+
+
     <Office defaultTitle="Governor"
       id="mn-governor"
       supplement="{ supplement }"
@@ -49,7 +100,7 @@
 
     <div class="credits">
       <p>Source: Associated Press, Minneasota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
-      <p>Credits: Alan Palazzolo, C.J. Sinner, Chase Davis, Jeff Hargarten, Rahul Murkherjee, Jamie Hutt, Matt DeLong</p>
+      <p>Credits: Alan Palazzolo, C.J. Sinner, Chase Davis, Jeff Hargarten, Rahul Mukherjee, Jamie Hutt, Matt DeLong</p>
     </div>
   </section>
 </div>
