@@ -3,57 +3,94 @@
   <Header />
 
   <section class="results container-lg">
-    <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years (CX this). </p>
+    <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years (CX this). Polls close at 8 p.m., when this page will begin to update live. Incumbents have been marked with (i).</p>
 
-<!--     <div class="race-party
-      { !party || party.id === 'np' ? 'non-partisan' : '' }
-      party-{ party ? party.id : 'np' } contest-{ id }
-      { uncontested ? 'uncontested' : '' }
-      { countyMap ? 'has-county-map' : '' }
-      { reporting && reporting > 0 ? 'is-reporting' : '' }" id="{ id }">
+    <div class="race-party condensed" id="">
 
-      <h6>Uncontested [race type] seats</h6>
+      <h6>Uncontested State House primaries</h6>
 
-      <div class="race-party-table">
+      <div class="race-party-table mn-state-house">
         <table>
           <thead>
             <tr>
-              <th></th>
               <th class="dist">District</th>
-              <td class="seat"></td>
-              <th class="party">Party</th>
+              <th class="seat">Seat</th>
+              <th></th>
               <th class="cand">Candidate</th>
             </tr>
           </thead>
 
           <tbody>
-            {#if !loaded}
-              <tbody>
-                {#each (new Array(2)) as blank}
-                  <tr>
-                    <td class="winner"></td>
-                    <td class="dist"></td>
-                    <td class="seat"></td>
-                    <td class="party"></td>
-                    <td class="cand">Loading ...</td>
-                  </tr>
-                {/each}
-              </tbody>
-            {:else}
-              {#each results as r, ri}
-                <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}">
-                  <td class="winner">{#if r.winner}&#10004;{/if}</td>
-                  <td class="dist">{ r. }</td>
+                <tr class="winner">
+                  <td class="dist" rowspan="2">1A</td>
                   <td class="seat"></td>
-                  <td class="party"><span>{}</span></td>
-                  <td class="cand">{ r.candidate.fullName }{#if r.incumbent}<span>(i)</span>{/if}</td>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand"><span class="party party-dem"></span>Stephen Moeller<span></span></td>
                 </tr>
-              {/each}
-            {/if}
+                <tr class="winner">
+                  <td class="seat"></td>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand"><span class="party party-rep"></span>Dan Fabian<span>(i)</span></td>
+                </tr>
+                <tr class="winner">
+                  <td class="dist" rowspan="2">1B</td>
+                  <td class="seat"></td>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand"><span class="party party-dem"></span>Brent Lindstrom<span></span></td>
+                </tr>
+                <tr class="winner">
+                  <td class="seat"></td>
+                  <td class="winner">&#10004;</td>
+                  <td class="cand"><span class="party party-rep"></span>Deb Kiel<span>(i)</span></td>
+                </tr>
           </tbody>
         </table>
       </div>
-    </div> -->
+    </div>
+
+    <div class="race-party condensed" id="">
+
+      <h6>Uncontested District Court primaries</h6>
+
+      <div class="race-party-table mn-district-court">
+        <table>
+          <thead>
+            <tr>
+              <th class="dist">District</th>
+              <th class="seat">Seat</th>
+              <th></th>
+              <th class="cand">Candidate</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr class="winner">
+              <td class="dist" rowspan="2">1</td>
+              <td class="seat" rowspan="2">2</td>
+              <td class="winner">&#10004;</td>
+              <td class="cand"><span class="party party-np"></span>Marty Judge<span></span></td>
+            </tr>
+            <tr class="winner">
+              <td class="winner">&#10004;</td>
+              <td class="cand"><span class="party party-np"></span>Arlene Perkkio<span>(i)</span></td>
+            </tr>
+            <tr class="winner">
+              <td class="dist" rowspan="1">1</td>
+              <td class="seat" rowspan="1">6</td>
+              <td class="winner">&#10004;</td>
+              <td class="cand"><span class="party party-np"></span>David Knutson<span>(i)</span></td>
+            </tr>
+            <tr class="winner">
+              <td class="dist" rowspan="1">1</td>
+              <td class="seat" rowspan="1">10</td>
+              <td class="winner">&#10004;</td>
+              <td class="cand"><span class="party party-np"></span>Paula Vraa<span>(i)</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
 
 
     <Office defaultTitle="Governor"

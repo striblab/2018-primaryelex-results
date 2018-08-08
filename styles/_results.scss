@@ -225,6 +225,52 @@
     }
   }
 
+
+  //Condensed tables
+
+  .condensed{
+
+    width: 46%;
+    float: right;
+
+    tbody td{
+      font-size: .78em;
+    }
+
+    .dist, .seat{
+      width: 15%;
+      text-align: center;
+    }
+
+    .mn-state-house .seat{
+      display: none;
+    }
+
+    .mn-state-house table span.party{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 6px;
+    }
+
+    .mn-state-house table span.party-dem{
+      background-color: #0258A0;
+    }
+
+    .mn-state-house table span.party-rep{
+      background-color: #C0272D;
+    }
+
+    .mn-district-court table span.party{
+      display: none;
+    }
+
+  }
+
+
+  // Credits and footers 
+
   .credits p {
     font-family: "Benton Sans";
     font-size: 0.8em;
