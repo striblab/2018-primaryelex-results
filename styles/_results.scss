@@ -116,7 +116,7 @@
   }
 
   tr.test-data{
-    //background-color: #ff6933;
+    background-color: #ff6933;
   }
 
   .cand {
@@ -180,7 +180,7 @@
   .counties {
     fill: #dcdcdc;
     stroke: white;
-    stroke-width: 1px;
+    stroke-width: .5px;
     stroke-linejoin: round;
     stroke-linecap: round;
   }
@@ -209,21 +209,22 @@
 
   //Uncontested
 
-  .uncontested th.votes,
-  .uncontested th.pct, 
-  .uncontested td.votes>span, 
-  .uncontested td.pct>span{
-    visibility: hidden;
+  .uncontested {
+    th.votes, th.pct, 
+    td.votes>span, td.pct>span, .reporting{
+      visibility: hidden;
+    }
+
+    td.pct>span.uncontested{
+      visibility: visible; 
+      font-size: .75em;
+    }
+
+    .bar {
+      width: 5%;
+    }
   }
 
-  .uncontested td.pct>span.uncontested{
-    visibility: visible; 
-    font-size: .75em;
-  }
-
-  .uncontested .bar {
-    width: 5%;
-  }
 
   .credits p{
   font-family: "Benton Sans";
