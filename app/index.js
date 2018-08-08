@@ -2,12 +2,18 @@
 import Content from '../templates/_index-content.svelte.html';
 import { Store } from 'svelte/store.js';
 import supplement from '../assets/data/results-supplement.json';
+import { feature as topojsonFeature } from 'topojson';
+import mnCountiesTopo from '../sources/mncounties.json';
 
 // Create global store for UI
 const store = new Store({
   // No trailing slash
   civixEndpoint: '//static.startribune.com/elections/civix-test/mn-20180814',
-  interval: 60 * 1000
+  interval: 60 * 1000,
+  mnCountiesGeo: topojsonFeature(
+    mnCountiesTopo,
+    mnCountiesTopo.objects.counties
+  ).features
 });
 
 // Create UI

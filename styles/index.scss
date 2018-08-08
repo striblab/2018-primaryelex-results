@@ -6,6 +6,7 @@
 
 // Include strib-icons
 $strib-fonts-location: "//static.startribune.com/assets/libs/strib-icons/0.0.10/";
+
 @import "@striblab/strib-icons/build/strib-icons.scss";
 
 // Strib styles
@@ -17,6 +18,7 @@ $strib-fonts-location: "//static.startribune.com/assets/libs/strib-icons/0.0.10/
 // this increases the CSS size, and it means strib-styles won't use
 // rems when it would otherwise.
 $selector-wrapper: ".strib-styles.ssa.ssb.ssc";
+
 @import "@striblab/strib-styles/source/styles/default-wrapper.scss";
 
 // Project specific styles.  Split styles into files per component
@@ -25,4 +27,5 @@ $selector-wrapper: ".strib-styles.ssa.ssb.ssc";
   @import "project";
   @import "header";
   @import "results";
+  @import "county-map";
 }

@@ -1,0 +1,47 @@
+
+<div class="contest-county-map">
+  <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;">
+    <g class="counties">
+      {#if $mnCountiesGeo}
+        {#each $mnCountiesGeo as feature}
+          <path d="{ countyPath(feature) }" class="county-path { pathClass(feature, subResults, keyedResults) }"></path>
+        {/each}
+      {/if}
+    </g>
+  </svg>
+
+  <div class="county-map-legend"></div>
+</div>
+
+<script>
+  import { geoPath } from "d3-geo";
+
+  export default {
+    oncreate() {},
+
+    helpers: {
+      countyPath(feature) {
+        return feature ? geoPath()(feature) : "";
+      },
+
+      pathClass(feature, subResults, keyedResults) {
+        let countyResults =
+          subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
+        let contestResult = keyedResults[countyResults[0].candidate_id];
+        return `county-leader-${contestResult ? contestResult.indexId : "none"}`;
+      }
+    },
+
+    computed: {
+      matchedCounties({ $mnCountiesGeo, subResults }) {
+        if ($mnCountiesGeo && subResults) {
+          return $mnCountiesGeo.map(f => {
+            f.properties.results =
+              subResults[`2013-mn-county-${f.properties.COUNTYFP}`];
+            return f;
+          });
+        }
+      }
+    }
+  };
+</script>

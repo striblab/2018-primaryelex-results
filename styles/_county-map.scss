@@ -1,0 +1,50 @@
+/**
+ * County map and colors.
+ */
+
+$demColors: #005073, #107DAC, #189AD3, #1EBBD7, #71C7EC;
+$repColors: #942011, #F76D50, #FDB430, #FFE8A0, #177501;
+
+.has-county-map {
+  .contest-county-map {
+    padding-top: 2em;
+  }
+
+  // A bit hacky, and probaly needs some adjustment
+  .race-party-table {
+    min-height: 255px;
+
+    // TODO: mobile/single-column, remove min-height
+  }
+
+  // Dem colors
+  &.party-dfl,
+  &.party-dem {
+    @each $c in $demColors {
+      $index: index($demColors, $c);
+
+      .candidate-result-#{$index - 1} {
+        background-color: $c;
+      }
+
+      &.is-reporting .county-leader-#{$index - 1} {
+        fill: $c;
+      }
+    }
+  }
+
+  // Rep colors
+  &.party-rep {
+    @each $c in $repColors {
+      $index: index($repColors, $c);
+
+      .candidate-result-#{$index - 1} {
+        background-color: $c;
+      }
+
+      &.is-reporting .county-leader-#{$index - 1} {
+        fill: $c;
+      }
+    }
+  }
+}
