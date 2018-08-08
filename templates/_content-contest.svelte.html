@@ -94,12 +94,14 @@
     },
 
     computed: {
-      supplementedTitle: ({ id, supplement, title, party }) => {
+      supplementedTitle: ({ id, supplement, title, party, defaultTitle }) => {
         return supplement && id && supplement[id] && supplement[id].title
           ? supplement[id].title
-          : party && party.id !== "np" && party.title
-            ? party.title
-            : title || "-";
+          : defaultTitle
+            ? defaultTitle
+            : party && party.id !== "np" && party.title
+              ? party.title
+              : title || "-";
       },
 
       percentReporting({ reporting, totalPrecincts }) {

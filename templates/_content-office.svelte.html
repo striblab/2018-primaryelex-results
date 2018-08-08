@@ -68,10 +68,12 @@
     },
 
     computed: {
-      supplementedTitle: ({ id, supplement, title }) => {
+      supplementedTitle: ({ id, supplement, title, defaultTitle }) => {
         return supplement && id && supplement[id] && supplement[id].title
           ? supplement[id].title
-          : title || "-";
+          : defaultTitle
+            ? defaultTitle
+            : title || "-";
       },
 
       description: ({ id, supplement }) => {

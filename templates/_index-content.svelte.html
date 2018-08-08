@@ -5,40 +5,45 @@
   <section class="results container-lg">
     <p class="lead-in"><span>Races to watch:</span> Talk to trees, look at the birds. Whatever it takes. It's a very cold picture, I may have to go get my coat. It’s about to freeze me to death. A beautiful little sunset. Let's put some highlights on these little trees. The sun wouldn't forget them. Let's put a touch more of the magic here. Get away from those little Christmas tree things we used to make in school. Every highlight needs it's own personal shadow. Follow the lay of the land. It's most important.</p>
 
-    <Office title="{ supplement['mn-governor'] ? supplement['mn-governor'].title || 'Governor' : 'Governor' }"
-      supplement="{ supplement }"
+    <Office defaultTitle="Governor"
       id="mn-governor"
+      supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Body title="{ supplement['mn-us-senate'] ? supplement['mn-us-senate'].title || 'U.S. Senate' : 'U.S. Senate' }"
+    <Body defaultTitle="U.S. Senate"
+      id="mn-us-senate"
       supplement="{ supplement }"
       likelyOffices="{ 2 }"
-      id="mn-us-senate"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Body title="{ supplement['mn-us-house'] ? supplement['mn-us-house'].title || 'U.S. House' : 'U.S. House' }"
+    <Body defaultTitle="U.S. House"
+      id="mn-us-house"
       supplement="{ supplement }"
       likelyOffices="{ 8 }"
-      id="mn-us-house"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Office id="mn-attorney-general"
+    <Office defaultTitle="Minnesota Attorney General"
+      id="mn-attorney-general"
       supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Office id="mn-auditor"
+    <Office defaultTitle="Minnesota Auditor"
+      id="mn-auditor"
       supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Office id="mn-secretaryof-state"
+    <Office defaultTitle="Minnesota Secretary of State"
+      id="mn-secretaryof-state"
       supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Body id="mn-state-house"
+    <Body defaultTitle="State House"
+      id="mn-state-house"
       supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <Body id="mn-district-court"
+    <Body defaultTitle="District Courts"
+      id="mn-district-court"
       supplement="{ supplement }" />
 
     <div class="credits">
