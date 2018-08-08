@@ -1,6 +1,6 @@
 
-<div class="contest-county-map">
-  <div class="county-map-tooltip { tooltipActive ? 'tooltip-active' : '' }">
+<div class="contest-county-map" ref:container>
+  <div class="county-map-tooltip { tooltipActive ? 'tooltip-active' : '' } tooltip-hover-region-{ tooltipHoverRegion }">
     <h4>{ toolTipResults ? toolTipResults.countyName : '' }</h4>
     <table>
       <thead>
@@ -25,7 +25,7 @@
     </table>
   </div>
 
-  <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;">
+  <svg viewBox="0 0 400 400" style="width: 100%; height: 100%;" ref:svgContainer>
     <g class="counties">
       {#if $mnCountiesGeo}
         {#each $mnCountiesGeo as feature}
@@ -93,6 +93,7 @@
 
     methods: {
       showTooltip(event, feature) {
+        let yInParent = event.pageY - this.refs.container.offsetTop;
         let { subResults } = this.get();
 
         if (feature && feature.properties) {
@@ -101,6 +102,10 @@
           countyResults.countyName = feature.properties.NAME;
 
           this.set({
+            tooltipHoverRegion:
+              yInParent && yInParent > this.refs.container.offsetHeight / 2
+                ? "bottom"
+                : "top",
             tooltipActive: true,
             toolTipResults: countyResults
           });

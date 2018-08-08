@@ -7,7 +7,8 @@ $repColors: #EB6868, #F9F37C, #FBA363, #F695BE, #FC9E8A;
 
 .has-county-map {
   .contest-county-map {
-    padding-top: 2em;
+    // Use margin top since we want to get offsetHeight
+    margin-top: 2em;
     position: relative;
   }
 
@@ -64,6 +65,11 @@ $repColors: #EB6868, #F9F37C, #FBA363, #F695BE, #FC9E8A;
     display: none;
     font-size: 0.85em;
     background-color: #FFFFFF;
+
+    &.tooltip-hover-region-top {
+      top: auto;
+      bottom: 0;
+    }
 
     &.tooltip-active {
       display: block;
