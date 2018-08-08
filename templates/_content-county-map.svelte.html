@@ -27,15 +27,18 @@
       pathClass(feature, subResults, keyedResults) {
         let countyResults =
           subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
-        let contestResult = keyedResults[countyResults[0].candidate_id];
+        let topCountyResults = countyResults[0];
+        if (!topCountyResults) {
+          return "no-county-leader";
+        }
+        let contestResult = keyedResults[topCountyResults.candidate_id];
         let reporting =
-          countyResults.resultDetails &&
-          countyResults.resultDetails.totalPrecincts
-            ? countyResults.resultDetails.reporting /
-              countyResults.resultDetails.totalPrecincts
+          topCountyResults.resultDetails &&
+          topCountyResults.resultDetails.totalPrecincts
+            ? topCountyResults.resultDetails.reporting /
+              topCountyResults.resultDetails.totalPrecincts
             : 0;
 
-        console.log(countyResults);
         return `county-leader-${contestResult ? contestResult.indexId : "none"} ${
           reporting && reporting < 1
             ? "county-reporting"
