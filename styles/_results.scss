@@ -3,9 +3,9 @@
   max-width: 1050px;
 
   @media (max-width: 768px) {
-      max-width: 65%;
-      margin: auto;
-    }
+    max-width: 65%;
+    margin: auto;
+  }
 
   @media (max-width: 545px) {
     max-width: 95%;
@@ -18,7 +18,7 @@
     text-transform: none;
     font-family: "Benton Sans";
     font-size: 0.9em;
-    padding: 20px 0px 40px 0px;
+    padding: 20px 0 40px;
   }
 
   .lead-in span {
@@ -40,7 +40,7 @@
     font-weight: normal;
   }
 
-  p.timestamp{
+  p.timestamp {
     font-family: "Benton Sans";
     font-size: 0.6em;
     color: #808080;
@@ -54,12 +54,12 @@
     font-size: 0.9em;
     width: 46%;
 
-    @media (max-width: 768px){
-    width: 100%;
+    @media (max-width: 768px) {
+      width: 100%;
     }
   }
 
-   .race-party:nth-child(even) {
+  .race-party:nth-child(even) {
     margin-left: 8%;
 
     @media (max-width: 768px) {
@@ -86,10 +86,9 @@
     clear: both;
   }
 
-  .race{
+  .race {
     margin-bottom: 2em;
   }
-
 
   .race-party-table {
     min-height: 100px;
@@ -104,26 +103,26 @@
     text-transform: uppercase;
     color: #080808;
     font-weight: normal;
-    border-bottom: 3px solid #eeeeee;
-    padding-left: 0px;
+    border-bottom: 3px solid #EEEEEE;
+    padding-left: 0;
     padding-bottom: 0.2em;
   }
 
   .race-party tbody td {
     font-size: 0.9em;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid #EEEEEE;
     vertical-align: middle;
   }
 
-  tr.test-data{
-    background-color: #ff6933;
+  tr.test-data {
+    border-right: 3px solid #FF6933;
   }
 
   .cand {
-    padding-left: 0px;
+    padding-left: 0;
   }
 
-  .cand>span {
+  .cand > span {
     font-size: 0.8em;
     padding-left: 5px;
   }
@@ -139,7 +138,6 @@
     @media (max-width: 900px) {
       display: none;
     }
-
   }
 
   .bar .pctBar {
@@ -149,15 +147,15 @@
     min-width: 2px;
   }
 
-  .party-dem .pctBar{
+  .party-dem .pctBar {
     background-color: #0258A0;
   }
 
-  .party-rep .pctBar{
+  .party-rep .pctBar {
     background-color: #C0272D;
   }
 
-  .party-np .pctBar{
+  .party-np .pctBar {
     background-color: #808080;
   }
 
@@ -171,16 +169,16 @@
     width: 100%;
     height: 400px;
     margin: auto;
-    background-color: #eee;
+    background-color: #EEEEEE;
     display: block;
   }
 
   // MAP styles
 
   .counties {
-    fill: #dcdcdc;
+    fill: #DCDCDC;
     stroke: white;
-    stroke-width: .5px;
+    stroke-width: 0.5px;
     stroke-linejoin: round;
     stroke-linecap: round;
   }
@@ -190,14 +188,14 @@
   //Winners
 
   tr.winner {
-    background-color: #f5f5f5;
+    background-color: #F5F5F5;
   }
 
   tr.winner td.cand {
     font-weight: bold;
   }
 
-  tr.winner td.cand>span{
+  tr.winner td.cand > span {
     font-weight: normal;
   }
 
@@ -210,14 +208,17 @@
   //Uncontested
 
   .uncontested {
-    th.votes, th.pct, 
-    td.votes>span, td.pct>span, .reporting{
+    th.votes,
+    th.pct,
+    td.votes > span,
+    td.pct > span,
+    .reporting {
       visibility: hidden;
     }
 
-    td.pct>span.uncontested{
-      visibility: visible; 
-      font-size: .75em;
+    td.pct > span.uncontested {
+      visibility: visible;
+      font-size: 0.75em;
     }
 
     .bar {
@@ -225,16 +226,13 @@
     }
   }
 
-
-  .credits p{
-  font-family: "Benton Sans";
-  font-size: .8em; 
-  color: #808080;
-}
+  .credits p {
+    font-family: "Benton Sans";
+    font-size: 0.8em;
+    color: #808080;
+  }
 
   footer {
     padding-top: 350px;
   }
 }
-
-
