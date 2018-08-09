@@ -5,8 +5,8 @@
     <table>
       <thead>
         <tr>
-          <th><span class="sr-only">Winner</span></th>
           <th>Candidate</th>
+          <th>Votes</th>
           <th>Pct.</th>
         </tr>
       </thead>
@@ -15,8 +15,8 @@
         {#if toolTipResults}
           {#each toolTipResults as result}
             <tr>
-              <td>{#if result.winner}&#10004;{/if}</td>
               <td>{ keyedResults[result.candidate_id].candidate.last }</td>
+              <td>{ result.votes.toLocaleString() }</td>
               <td>{ round(result.percent * 100, 1) }%</td>
             </tr>
           {/each}
