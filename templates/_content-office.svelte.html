@@ -19,7 +19,7 @@
     {/each}
   {:else}
     {#each contests as contest}
-      {#if !parties || (parties && ~parties.indexOf(contest.party.id))}
+      {#if !parties || (parties && contest.party && ~parties.indexOf(contest.party.id))}
         <Contest id="{ contest.id }"
           {...contest}
           embedded="{ true }"
