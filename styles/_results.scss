@@ -243,16 +243,13 @@
       font-size: .77em;
     }
 
-    .dist {
-      width: 15%;
-      //text-align: center;
+    .dist, .seat {
+      width: 10%;
+      text-align: left;
       padding-left: 0px;
     }
 
-    .seat{
-      width: 8%;
-      padding-left: 0px;
-    }
+
 
     .winner>.dist, .winner>.seat{
       background-color: white;
