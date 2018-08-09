@@ -146,7 +146,8 @@
     min-width: 2px;
   }
 
-  .party-dem .pctBar {
+  .party-dem .pctBar,
+  .party-dfl .pctBar {
     background-color: #0258A0;
   }
 
@@ -225,44 +226,42 @@
     }
   }
 
-
   //Condensed tables
 
-  .condensed{
-
+  .condensed {
     width: 46%;
     float: right;
 
-    @media (max-width: 768px){
+    @media (max-width: 768px) {
       float: none;
       width: 100%;
     }
 
-
-    tbody td{
-      font-size: .77em;
+    tbody td {
+      font-size: 0.77em;
     }
 
     .dist {
       width: 15%;
       //text-align: center;
-      padding-left: 0px;
+      padding-left: 0;
     }
 
-    .seat{
+    .seat {
       width: 8%;
-      padding-left: 0px;
+      padding-left: 0;
     }
 
-    .winner>.dist, .winner>.seat{
+    .winner > .dist,
+    .winner > .seat {
       background-color: white;
     }
 
-    .mn-state-house .seat{
+    .mn-state-house .seat {
       display: none;
     }
 
-    .mn-state-house table span.party{
+    .mn-state-house table span.party {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -270,22 +269,21 @@
       margin-right: 6px;
     }
 
-    .mn-state-house table span.party-dem{
+    .mn-state-house table span.party-dfl,
+    .mn-state-house table span.party-dem {
       background-color: #0258A0;
     }
 
-    .mn-state-house table span.party-rep{
+    .mn-state-house table span.party-rep {
       background-color: #C0272D;
     }
 
-    .mn-district-court table span.party{
+    .mn-district-court table span.party {
       display: none;
     }
-
   }
 
-
-  // Credits and footers 
+  // Credits and footers
 
   .credits p {
     font-family: "Benton Sans";
