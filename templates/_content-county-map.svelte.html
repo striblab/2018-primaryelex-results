@@ -69,7 +69,7 @@
               topCountyResults.resultDetails.totalPrecincts
             : 0;
 
-        return `county-leader-${contestResult ? contestResult.indexId : "none"} ${
+        return `county-leader-${topCountyResults.candidate_id} ${
           reporting && reporting < 1
             ? "county-reporting"
             : reporting && reporting === 1

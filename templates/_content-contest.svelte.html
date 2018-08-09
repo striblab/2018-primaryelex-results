@@ -38,14 +38,14 @@
           </tbody>
         {:else}
           {#each results as r, ri}
-            <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}">
+            <tr class="{ r.winner ? 'winner' : '' } { r.test ? 'test-data' : ''}" data-candidate-id="{ r.candidate_id }">
               <td class="winner">{#if r.winner}&#10004;{/if}</td>
               <td class="cand">{ r.candidate.fullName }{#if r.incumbent}<span>(i)</span>{/if}</td>
               <td class="votes"><span>{ r.votes.toLocaleString() }</span></td>
               <td class="pct">{#if uncontested}<span class="uncontested">Uncontested</span>{/if}<span>{ round(r.percent * 100) }%</span></td>
               <td class="bar">
                 {#if reporting}
-                  <span class="pctBar candidate-result-{ ri }" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
+                  <span class="pctBar candidate-result-{ r.candidate_id }" style="width: { (r.percent / results[0].percent) * 100 }%;"></span>
                 {/if}
               </td>
             </tr>

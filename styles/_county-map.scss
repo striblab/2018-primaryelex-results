@@ -2,10 +2,18 @@
  * County map and colors.
  */
 
-$demColors: #82bae0, #b9ee7d, #ce91e9, #65c0b0, #9084c3;
-$repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
+$candidateColors: (
+  mn-20180814-33506-murphy: #82BAE0,
+  mn-20180814-33509-walz: #B9EE7D,
+  mn-20180814-33508-swanson: #CE91E9,
+  mn-20180814-33505-holden: #65C0B0,
+  mn-20180814-33507-savior: #9084C3,
+  mn-20180814-33512-johnson: #EB6868,
+  mn-20180814-33511-pawlenty: #F9F37C,
+  mn-20180814-33510-kruse: #FBA363
+);
 
-.has-county-map {
+.results .has-county-map {
   .contest-county-map {
     // Use margin top since we want to get offsetHeight
     margin-top: 2em;
@@ -23,36 +31,15 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
     // TODO: mobile/single-column, remove min-height
   }
 
-  // Dem colors
-  &.party-dfl,
-  &.party-dem {
-    @each $c in $demColors {
-      $index: index($demColors, $c);
-
-      .candidate-result-#{$index - 1} {
-        background-color: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1},
-      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
-        fill: $c;
-      }
+  // Candidate colors colors
+  @each $cand, $color in $candidateColors {
+    .candidate-result-#{$cand} {
+      background-color: $color;
     }
-  }
 
-  // Rep colors
-  &.party-rep {
-    @each $c in $repColors {
-      $index: index($repColors, $c);
-
-      .candidate-result-#{$index - 1} {
-        background-color: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1},
-      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
-        fill: $c;
-      }
+    &.is-reporting .county-reporting.county-leader-#{$cand},
+    &.is-reporting .county-fully-reported.county-leader-#{$cand} {
+      fill: $color;
     }
   }
 
