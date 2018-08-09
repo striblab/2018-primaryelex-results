@@ -19,17 +19,19 @@
           <tr></tr>
         {:else}
           {#each Object.entries(offices) as [officeId, office]}
-            {#each office.contests as contest, contestId}
-              {#each contest.results as result}
+            {#each office.contests as contest, contestIndex}
+              {#each contest.results as result, resultIndex}
                 <tr class="{ result.winner ? 'winner' : '' }">
-                  {#if contestId === 0}
+                  {#if contestIndex === 0}
                     <td class="dist" rowspan="{ office.contests.length }">
                       { formatDistrictName(office.shortTitle) }
                     </td>
                   {/if}
 
                   {#if hasSeat}
-                    <td class="seat">{ formatSeatName(office.seatName) }</td>
+                    <td class="seat">
+                      { formatSeatName(office.seatName) }
+                    </td>
                   {/if}
 
                   <td class="winner">{#if result.winner}&#10004;{/if}</td>
@@ -74,6 +76,10 @@
             return find(o.contests, c => c.partisan);
           })
         );
+      },
+
+      hasSeat: ({ offices }) => {
+        return offices && find(offices, o => o.seatName);
       },
 
       alteredId: ({ id, contestedFilter }) => {
