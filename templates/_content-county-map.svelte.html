@@ -1,13 +1,13 @@
 
 <div class="contest-county-map" ref:container>
   <div class="county-map-tooltip { tooltipActive ? 'tooltip-active' : '' } tooltip-hover-region-{ tooltipHoverRegion }">
-    <h4>{ toolTipResults ? toolTipResults.countyName : '' }</h4>
+    <h4>{ toolTipResults ? toolTipResults.countyName : '' } County</h4>
     <table>
       <thead>
         <tr>
           <th><span class="sr-only">Winner</span></th>
           <th>Candidate</th>
-          <th>Percent</th>
+          <th>Pct.</th>
         </tr>
       </thead>
 
@@ -17,7 +17,7 @@
             <tr>
               <td>{#if result.winner}&#10004;{/if}</td>
               <td>{ keyedResults[result.candidate_id].candidate.last }</td>
-              <td>{ result.percent }</td>
+              <td>{ result.percent * 100 }%</td>
             </tr>
           {/each}
         {/if}

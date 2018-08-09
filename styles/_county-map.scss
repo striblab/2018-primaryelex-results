@@ -59,11 +59,12 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
   .county-map-tooltip {
     position: absolute;
     z-index: 100;
+    width: 60%;
     top: 0;
     left: 0;
     right: 0;
     display: none;
-    font-size: 0.85em;
+    font-size: 0.8em;
     background-color: #FFFFFF;
 
     &.tooltip-hover-region-top {
