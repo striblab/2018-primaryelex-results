@@ -126,9 +126,52 @@
     padding-left: 0;
   }
 
-  .cand > span {
+  .cand > span.inc {
     font-size: 0.8em;
     padding-left: 5px;
+  }
+
+  @media (max-width:900px){
+    span.Murphy, span.Walz, span.Swanson, span.Holden, span.Savior, span.Johnson, span.Pawlenty, span.Kruse{
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 2px;
+      margin-right: 5px;
+    }
+
+    span.Murphy{
+      background-color: #82bae0;
+    }
+
+    span.Walz{
+      background-color: #b9ee7d;
+    }
+
+    span.Swanson{
+      background-color: #ce91e9;
+    }
+
+    span.Holden{
+      background-color: #65c0b0;
+    }
+
+    span.Savior{
+      background-color: #9084c3;
+    }
+
+    span.Johnson{
+      background-color: #eb6868;
+    }
+
+    span.Pawlenty{
+      background-color: #f9f37c;
+    }
+
+    span.Kruse{
+      background-color: #fba363;
+    }
   }
 
   .votes,
@@ -235,7 +278,6 @@
   //Condensed tables
 
   .condensed {
-    width: 46%;
 
     @media (max-width: 768px) {
       width: 100%;
