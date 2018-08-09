@@ -70,12 +70,21 @@
     },
 
     computed: {
-      supplementedTitle: ({ id, supplement, title, defaultTitle }) => {
+      supplementedTitle: ({
+        id,
+        supplement,
+        title,
+        defaultTitle,
+        shortTitle,
+        embedded
+      }) => {
         return supplement && id && supplement[id] && supplement[id].title
           ? supplement[id].title
           : defaultTitle
             ? defaultTitle
-            : title || "-";
+            : embedded && shortTitle
+              ? shortTitle
+              : title || "-";
       },
 
       description: ({ id, supplement }) => {
