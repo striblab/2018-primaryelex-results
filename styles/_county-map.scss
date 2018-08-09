@@ -7,7 +7,13 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
 
 .has-county-map {
   .contest-county-map {
-    padding-top: 2em;
+    // Use margin top since we want to get offsetHeight
+    margin-top: 2em;
+    position: relative;
+  }
+
+  .county-path:hover {
+    cursor: pointer;
   }
 
   // A bit hacky, and probaly needs some adjustment
@@ -27,12 +33,9 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
         background-color: $c;
       }
 
+      &.is-reporting .county-reporting.county-leader-#{$index - 1},
       &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
-        fill: lighten($c, 25);
       }
     }
   }
@@ -46,13 +49,30 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
         background-color: $c;
       }
 
+      &.is-reporting .county-reporting.county-leader-#{$index - 1},
       &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
         fill: $c;
       }
+    }
+  }
 
-      &.is-reporting .county-reporting.county-leader-#{$index - 1} {
-        fill: lighten($c, 25);
-      }
+  .county-map-tooltip {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: none;
+    font-size: 0.85em;
+    background-color: #FFFFFF;
+
+    &.tooltip-hover-region-top {
+      top: auto;
+      bottom: 0;
+    }
+
+    &.tooltip-active {
+      display: block;
     }
   }
 }
