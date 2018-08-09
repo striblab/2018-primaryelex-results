@@ -257,11 +257,7 @@
       background-color: white;
     }
 
-    .mn-state-house .seat {
-      display: none;
-    }
-
-    .mn-state-house table span.party {
+    table span.party {
       width: 10px;
       height: 10px;
       border-radius: 50%;
@@ -269,17 +265,13 @@
       margin-right: 6px;
     }
 
-    .mn-state-house table span.party-dfl,
-    .mn-state-house table span.party-dem {
+    table span.party-dfl,
+    table span.party-dem {
       background-color: #0258A0;
     }
 
-    .mn-state-house table span.party-rep {
+    table span.party-rep {
       background-color: #C0272D;
-    }
-
-    .mn-district-court table span.party {
-      display: none;
     }
   }
 

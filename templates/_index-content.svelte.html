@@ -2,96 +2,8 @@
 <div class="strib-styles ssa ssb ssc">
   <Header />
 
-  <section class="results container-lg">
+  <section class="results container-lg cf">
     <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years (CX this). Polls close at 8 p.m., when this page will begin to update live. Incumbents have been marked with (i).</p>
-
-    <div class="race-party condensed" id="">
-
-      <h6>Uncontested State House primaries</h6>
-
-      <div class="race-party-table mn-state-house">
-        <table>
-          <thead>
-            <tr>
-              <th class="dist">District</th>
-              <th class="seat">Seat</th>
-              <th></th>
-              <th class="cand">Candidate</th>
-            </tr>
-          </thead>
-
-          <tbody>
-                <tr class="winner">
-                  <td class="dist" rowspan="2">1A</td>
-                  <td class="seat"></td>
-                  <td class="winner">&#10004;</td>
-                  <td class="cand"><span class="party party-dem"></span>Stephen Moeller<span></span></td>
-                </tr>
-                <tr class="">
-                  <td class="seat"></td>
-                  <td class="winner"></td>
-                  <td class="cand"><span class="party party-rep"></span>Dan Fabian<span>(i)</span></td>
-                </tr>
-                <tr class="winner">
-                  <td class="dist" rowspan="2">1B</td>
-                  <td class="seat"></td>
-                  <td class="winner">&#10004;</td>
-                  <td class="cand"><span class="party party-dem"></span>Brent Lindstrom<span></span></td>
-                </tr>
-                <tr class="winner">
-                  <td class="seat"></td>
-                  <td class="winner">&#10004;</td>
-                  <td class="cand"><span class="party party-rep"></span>Deb Kiel<span>(i)</span></td>
-                </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="race-party condensed" id="">
-
-      <h6>Uncontested District Court primaries</h6>
-
-      <div class="race-party-table mn-district-court">
-        <table>
-          <thead>
-            <tr>
-              <th class="dist">District</th>
-              <th class="seat">Seat</th>
-              <th></th>
-              <th class="cand">Candidate</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr class="winner">
-              <td class="dist" rowspan="2">1</td>
-              <td class="seat" rowspan="2">2</td>
-              <td class="winner">&#10004;</td>
-              <td class="cand"><span class="party party-np"></span>Marty Judge<span></span></td>
-            </tr>
-            <tr class="winner">
-              <td class="winner">&#10004;</td>
-              <td class="cand"><span class="party party-np"></span>Arlene Perkkio<span>(i)</span></td>
-            </tr>
-            <tr class="winner">
-              <td class="dist" rowspan="1">1</td>
-              <td class="seat" rowspan="1">6</td>
-              <td class="winner">&#10004;</td>
-              <td class="cand"><span class="party party-np"></span>David Knutson<span>(i)</span></td>
-            </tr>
-            <tr class="winner">
-              <td class="dist" rowspan="1">1</td>
-              <td class="seat" rowspan="1">10</td>
-              <td class="winner">&#10004;</td>
-              <td class="cand"><span class="party party-np"></span>Paula Vraa<span>(i)</span></td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-
 
     <Office defaultTitle="Governor"
       id="mn-governor"
@@ -129,11 +41,26 @@
     <Body defaultTitle="State House"
       id="mn-state-house"
       supplement="{ supplement }"
-      parties="{ ['dfl', 'dem', 'rep'] }" />
+      parties="{ ['dfl', 'dem', 'rep'] }"
+      contestedFilter="contested"
+      likelyOffices="{ 21 }" />
+
+    <BodyCondensed defaultTitle="Uncontested State House"
+      id="mn-state-house"
+      supplement="{ supplement }"
+      parties="{ ['dfl', 'dem', 'rep'] }"
+      contestedFilter="uncontested"
+      likelyOffices="{ 67 * 2 - 21 }" />
 
     <Body defaultTitle="District Courts"
       id="mn-district-court"
-      supplement="{ supplement }" />
+      supplement="{ 3 }"
+      contestedFilter="contested" />
+
+    <BodyCondensed  defaultTitle="Uncontested District Courts"
+      id="mn-district-court"
+      supplement="{ 3 }"
+      contestedFilter="uncontested" />
 
     <div class="credits">
       <p>Source: Associated Press, Minneasota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
@@ -147,13 +74,15 @@
   import Header from "./_content-header.svelte.html";
   import Office from "./_content-office.svelte.html";
   import Body from "./_content-body.svelte.html";
+  import BodyCondensed from "./_content-body-condensed.svelte.html";
 
   // Svelte logic
   export default {
     components: {
       Header,
       Office,
-      Body
+      Body,
+      BodyCondensed
     },
 
     oncreate: function() {}
