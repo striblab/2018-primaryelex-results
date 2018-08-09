@@ -240,12 +240,22 @@
 
 
     tbody td{
-      font-size: .78em;
+      font-size: .77em;
     }
 
-    .dist, .seat{
+    .dist {
       width: 15%;
-      text-align: center;
+      //text-align: center;
+      padding-left: 0px;
+    }
+
+    .seat{
+      width: 8%;
+      padding-left: 0px;
+    }
+
+    .winner>.dist, .winner>.seat{
+      background-color: white;
     }
 
     .mn-state-house .seat{
