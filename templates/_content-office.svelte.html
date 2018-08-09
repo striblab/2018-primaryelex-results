@@ -1,9 +1,8 @@
 <!-- TODO: Standarize on "office" not "race" -->
 <div class="race cf type-{ voteType } { partisan ? 'partisan' : 'nonpartisan' }" id="{ id }">
-  <h4 class="font-benton-sans">{ supplementedTitle }</h4>
   <div class="office-details">
+    <h4 class="font-benton-sans">{ supplementedTitle }</h4>
     <p class="timestamp">Last updated: { updatedDate ? makeDate(updatedDate) : '-' }</p>
-
     {#if description}
       <p class="office-chat">{@html description }</p>
     {/if}

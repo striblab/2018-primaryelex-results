@@ -41,6 +41,10 @@
     font-weight: normal;
   }
 
+  .office-details{
+    clear:both;
+  }
+
   p.timestamp {
     font-family: "Benton Sans";
     font-size: 0.6em;
@@ -59,7 +63,7 @@
     }
   }
 
-  .race-party:nth-child(even) {
+  .race-party:nth-child(odd) {
     margin-left: 8%;
 
     @media (max-width: 768px) {
@@ -322,29 +326,12 @@
     }
   }
 
-  #mn-district-court .race-group{
-    float:left;
-    width: 46%;
-
-      @media (max-width: 768px){
-        float: none;
-        width: 100%;
-      }
+  .uncontested-condensed .race-party{
+    float: none;
+    margin-left: 0px;
   }
 
-  #mn-district-court .race-group .nonpartisan .race-party{
-    width: 100%;
-  }
 
-  #mn-district-court-uncontested{
-    margin-left: 8%;
-    padding-top: 3.4em;
-
-      @media (max-width: 768px){
-        margin: auto;
-        padding-top: 0px;
-      }
-  }
 
   // Credits and footers
 
