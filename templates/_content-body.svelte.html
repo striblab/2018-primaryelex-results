@@ -90,6 +90,11 @@
           return;
         }
 
+        // Filter contested
+        let contestedFilter = this.get().contestedFilter
+          ? this.get().contestedFilter
+          : null;
+
         // Mark as loading
         this.set({ loading: true });
 
@@ -98,7 +103,7 @@
           .fetch(
             `${this.store.get().civixEndpoint}/contests/by-body/${
               this.get().id
-            }.json`
+            }.${contestedFilter ? contestedFilter + "." : ""}json`
           )
           .then(response => {
             return response.json();

@@ -17,7 +17,7 @@
             <tr>
               <td>{#if result.winner}&#10004;{/if}</td>
               <td>{ keyedResults[result.candidate_id].candidate.last }</td>
-              <td>{ result.percent * 100 }%</td>
+              <td>{ round(result.percent * 100, 1) }%</td>
             </tr>
           {/each}
         {/if}
@@ -76,6 +76,15 @@
               ? "county-fully-reported"
               : "county-no-reporting"
         }`;
+      },
+
+      round(input, decimals = 1) {
+        if (parseFloat(input) !== NaN) {
+          return (
+            Math.round(parseFloat(input) * Math.pow(10, decimals)) /
+            Math.pow(10, decimals)
+          );
+        }
       }
     },
 
