@@ -12,11 +12,20 @@
     margin: auto;
   }
 
+  .util{
+    max-width: 525px;
+    text-align: center;
+    margin: auto;
+    font-family: "Benton Sans";
+    font-size: 0.75em;
+    padding: 10px 0 25px;
+  }
+
   .lead-in {
     max-width: 525px;
     margin: auto;
-    text-transform: none;
     font-family: "Benton Sans";
+    text-transform: none;
     font-size: 0.9em;
     padding: 20px 0 40px;
   }
@@ -25,7 +34,7 @@
     font-weight: bold;
   }
 
-  h3 {
+  h3, #mn-governor h4{
     font-size: 1.4em;
     font-weight: bold;
   }
@@ -53,7 +62,7 @@
   }
 
   p.body-chat,
-  p.office-chat {
+  p.office-chat{
     font-family: "Benton Sans";
     font-size: 0.9em;
     width: 75%;
@@ -331,6 +340,49 @@
     margin-left: 0px;
   }
 
+  // Weird exceptions for the uncontested condensed races
+
+  #mn-supreme-court- .dist, #mn-appeals-court- .dist{
+    display:none;
+  }
+
+  #mn-supreme-court-{
+    float: left;
+
+    @media (max-width: 768px){
+      float: none;
+    }
+  }
+
+  #mn-appeals-court-{
+    float: right;
+
+    @media (max-width: 768px){
+      float: none;
+    }
+  }
+
+  #mn-district-court h3{
+    display: none;
+  }
+
+  #mn-district-court .race-group{
+    width: 46%;
+    float: left;
+
+    @media (max-width:768px){
+      width: 100%;
+      float: none;
+    }
+  }
+
+  #mn-district-court .race-party{
+    width: 100%;
+  }
+
+  .uncontested-condensed #mn-district-court-uncontested{
+    float: right;
+  }
 
 
   // Credits and footers

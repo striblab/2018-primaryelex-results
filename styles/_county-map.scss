@@ -18,9 +18,11 @@ $repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
 
   // A bit hacky, and probaly needs some adjustment
   .race-party-table {
-    min-height: 255px;
+    min-height: 230px;
 
-    // TODO: mobile/single-column, remove min-height
+    @media(max-width: 768px){
+      min-height: 0px;
+    }
   }
 
   // Dem colors

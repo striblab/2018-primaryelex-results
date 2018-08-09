@@ -3,7 +3,7 @@
   <Header />
 
   <section class="results container-lg cf">
-    <p class="lead-in">Polls close at 8 p.m. Incumbents have been marked with (i).</p>
+    <p class="util">Polls close at 8 p.m. Incumbents have been marked with (i).</p>
     <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years.</p>
 
     <Office defaultTitle="Governor"
@@ -24,6 +24,7 @@
       likelyOffices="{ 8 }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
+    <h3 class="font-benton-sans" id="S">Statewide Offices</h3>
     <Office defaultTitle="Minnesota Attorney General"
       id="mn-attorney-general"
       supplement="{ supplement }"
@@ -53,6 +54,16 @@
       contestedFilter="uncontested"
       likelyOffices="{ 67 * 2 - 21 }" />
 
+    <h3 class="font-benton-sans" id="C">Courts</h3>
+    <p class="body-chat">These nonpartisan races take the top two vote-getters as winners for each seat in a primary. Only a handful of district races are contested this year.</p>
+    <BodyCondensed  defaultTitle="Uncontested Supreme Court Seats"
+      id="mn-supreme-court"
+      supplement="{ supplement }" />
+
+    <BodyCondensed  defaultTitle="Uncontested Appellate Court Seats"
+      id="mn-appeals-court"
+      supplement="{ supplement }" />
+
     <Body defaultTitle="District Courts"
       id="mn-district-court"
       supplement="{ supplement }"
@@ -63,14 +74,6 @@
       id="mn-district-court"
       supplement="{ supplement }"
       contestedFilter="uncontested" />
-
-    <BodyCondensed  defaultTitle="Supreme Court Seats"
-      id="mn-supreme-court"
-      supplement="{ supplement }" />
-
-    <BodyCondensed  defaultTitle="Appellate Court Seats"
-      id="mn-appeals-court"
-      supplement="{ supplement }" />
 
     <div class="credits">
       <p>Source: Associated Press, Minneasota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
