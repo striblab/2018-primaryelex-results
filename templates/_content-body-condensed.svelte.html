@@ -160,7 +160,6 @@
             return response.json();
           })
           .then(body => {
-            console.log(body);
             this.set(body);
             this.set({ loaded: true });
           })
