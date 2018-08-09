@@ -33,6 +33,7 @@
   h4 {
     font-size: 1.1em;
     font-weight: bold;
+    margin-bottom: .2em;
   }
 
   h6 {
@@ -75,7 +76,7 @@
     @media (max-width: 768px) {
       width: 100%;
       margin: auto;
-      margin-bottom: 25px;
+      margin-bottom: 15px;
       float: none;
     }
   }
@@ -91,6 +92,10 @@
 
   .race-party-table {
     min-height: 100px;
+
+    @media (max-width: 768px){
+      min-height: 0px;
+    }
   }
 
   .race-party table {
@@ -128,6 +133,7 @@
 
   .votes,
   .pct {
+    padding-right: 8px;
     text-align: right;
   }
 
@@ -230,11 +236,10 @@
 
   .condensed {
     width: 46%;
-    float: right;
 
     @media (max-width: 768px) {
-      float: none;
       width: 100%;
+      margin: auto;
     }
 
     tbody td {
@@ -242,8 +247,14 @@
     }
 
     .dist, .seat {
-      width: 10%;
+      width: 15%;
       text-align: center;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+
+    .cand>span {
+      padding-left:0px;
     }
 
     .winner > .dist,
@@ -256,7 +267,7 @@
       height: 10px;
       border-radius: 50%;
       display: inline-block;
-      margin-right: 6px;
+      margin-left: 2px;
     }
 
     table span.party-dfl,
@@ -269,12 +280,37 @@
     }
   }
 
+  #mn-district-court .race-group{
+    float:left;
+    width: 46%;
+
+      @media (max-width: 768px){
+        float: none;
+        width: 100%;
+      }
+  }
+
+  #mn-district-court .race-group .nonpartisan .race-party{
+    width: 100%;
+  }
+
+  #mn-district-court-uncontested{
+    margin-left: 8%;
+    padding-top: 3.4em;
+
+      @media (max-width: 768px){
+        margin: auto;
+        padding-top: 0px;
+      }
+  }
+
   // Credits and footers
 
   .credits p {
     font-family: "Benton Sans";
     font-size: 0.8em;
     color: #808080;
+    clear: both;
   }
 
   footer {
