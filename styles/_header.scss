@@ -119,11 +119,12 @@
     padding: 5px 0px 5px 0px;
   }
 
+  nav select option.group{
+    padding-bottom: 7px;
+  }
+
   nav select option.sub {
-    text-indent: 5px;
     font-weight: normal;
-    text-transform: capitalize;
-    letter-spacing: 10px;
   }
 
   #drop-nav {
