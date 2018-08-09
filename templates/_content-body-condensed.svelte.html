@@ -1,57 +1,59 @@
-<div class="race-party condensed body-{ partisan ? 'partisan' : 'nonpartisan' }" id="{ alteredId }">
-  <h4>{ supplementedTitle }</h4>
+<div class="uncontested-condensed">
+  <div class="race-party condensed body-{ partisan ? 'partisan' : 'nonpartisan' }" id="{ alteredId }">
+    <h4>{ supplementedTitle }</h4>
 
-  <div class="race-party-table">
-    <table>
-      <thead>
-        <tr>
-          <th class="dist">Dist.</th>
-          {#if hasSeat}
-            <th class="seat">Seat</th>
-          {/if}
-          <th><span class="sr-only">Winner</span></th>
-          <th class="cand">Candidate</th>
-        </tr>
-      </thead>
+    <div class="race-party-table">
+      <table>
+        <thead>
+          <tr>
+            <th class="dist">Dist.</th>
+            {#if hasSeat}
+              <th class="seat">Seat</th>
+            {/if}
+            <th><span class="sr-only">Winner</span></th>
+            <th class="cand">Candidate</th>
+          </tr>
+        </thead>
 
-      <tbody>
-        {#if !loaded }
-          <tr></tr>
-        {:else}
-          {#each Object.entries(offices) as [officeId, office]}
-            {#each office.contests as contest, contestIndex}
-              {#each contest.results as result, resultIndex}
-                <tr class="{ result.winner ? 'winner' : '' }">
-                  {#if contestIndex === 0}
-                    <td class="dist" rowspan="{ office.contests.length }">
-                      { formatDistrictName(office.shortTitle) }
-                    </td>
-                  {/if}
-
-                  {#if hasSeat}
-                    <td class="seat">
-                      { formatSeatName(office.seatName) }
-                    </td>
-                  {/if}
-
-                  <td class="winner">{#if result.winner}&#10004;{/if}</td>
-
-                  <td class="cand">
-                    {#if partisan}
-                      <span class="party party-{ result.candidate.party_id }"></span>
+        <tbody>
+          {#if !loaded }
+            <tr></tr>
+          {:else}
+            {#each Object.entries(offices) as [officeId, office]}
+              {#each office.contests as contest, contestIndex}
+                {#each contest.results as result, resultIndex}
+                  <tr class="{ result.winner ? 'winner' : '' }">
+                    {#if contestIndex === 0}
+                      <td class="dist" rowspan="{ office.contests.length }">
+                        { formatDistrictName(office.shortTitle) }
+                      </td>
                     {/if}
 
-                    { result.candidate.fullName }
+                    {#if hasSeat}
+                      <td class="seat">
+                        { formatSeatName(office.seatName) }
+                      </td>
+                    {/if}
 
-                    <span>{#if result.incumbent}(i){/if}</span>
-                  </td>
-                </tr>
+                    <td class="winner">{#if result.winner}&#10004;{/if}</td>
+
+                    <td class="cand">
+                      {#if partisan}
+                        <span class="party party-{ result.candidate.party_id }"></span>
+                      {/if}
+
+                      { result.candidate.fullName }
+
+                      <span>{#if result.incumbent}(i){/if}</span>
+                    </td>
+                  </tr>
+                {/each}
               {/each}
             {/each}
-          {/each}
-        {/if}
-      </tbody>
-    </table>
+          {/if}
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
 

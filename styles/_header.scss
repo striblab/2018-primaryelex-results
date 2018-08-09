@@ -62,9 +62,9 @@
 
   nav ul li img {
     width: 18px;
-    -webkit-transition: 0.3s ease-out;
-    -moz-transition: 0.3s ease-out;
-    transition: 0.3s ease-out;
+    -webkit-transform: rotateZ(90deg);
+    -moz-transform: rotateZ(90deg);
+    transform: rotateZ(90deg);
   }
 
   nav ul li:last-child {
@@ -156,12 +156,6 @@
 
   nav ul li a:hover {
     background-color: eee;
-  }
-
-  nav ul li:hover img {
-    -webkit-transform: rotateZ(90deg);
-    -moz-transform: rotateZ(90deg);
-    transform: rotateZ(90deg);
   }
 
   nav ul li:hover ul.nav-dropdown {
