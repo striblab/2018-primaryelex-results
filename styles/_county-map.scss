@@ -20,16 +20,24 @@ $candidateColors: (
     position: relative;
   }
 
+  .county-path {
+    fill: #F5F5F5;
+    stroke: #FFFFFF;
+    stroke-width: 0.5px;
+    transition: fill 1s;
+  }
+
   .county-path:hover {
     cursor: pointer;
+    stroke-width: 2px;
   }
 
   // A bit hacky, and probaly needs some adjustment
   .race-party-table {
     min-height: 230px;
 
-    @media(max-width: 768px){
-      min-height: 0px;
+    @media (max-width: 768px) {
+      min-height: 0;
     }
   }
 
@@ -48,13 +56,22 @@ $candidateColors: (
   .county-map-tooltip {
     position: absolute;
     z-index: 100;
-    width: 60%;
+    max-width: 22em;
     top: 0;
     left: 0;
     right: 0;
     display: none;
     font-size: 0.8em;
     background-color: #FFFFFF;
+    border: 1px solid #565656;
+    margin: 0.5em;
+    padding: 0.5em;
+
+    h4 {
+      padding-top: 0;
+      margin-top: 0;
+      font-size: 1.15em !important;
+    }
 
     &.tooltip-hover-region-top {
       top: auto;
