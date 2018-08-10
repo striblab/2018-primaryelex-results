@@ -5,9 +5,9 @@
     <table>
       <thead>
         <tr>
-          <th>Candidate</th>
-          <th>Votes</th>
-          <th>Pct.</th>
+          <th class="map-cand">Candidate</th>
+          <th class="map-votes">Votes</th>
+          <th class="map-pct">Pct.</th>
         </tr>
       </thead>
 
@@ -15,9 +15,9 @@
         {#if toolTipResults}
           {#each toolTipResults as result}
             <tr>
-              <td>{ keyedResults[result.candidate_id].candidate.last }</td>
-              <td>{ result.votes.toLocaleString() }</td>
-              <td>{ round(result.percent * 100, 1) }%</td>
+              <td class="map-cand">{ keyedResults[result.candidate_id].candidate.last }</td>
+              <td class="map-votes">{ result.votes.toLocaleString() }</td>
+              <td class="map-pct">{ round(result.percent * 100, 1) }%</td>
             </tr>
           {/each}
         {/if}

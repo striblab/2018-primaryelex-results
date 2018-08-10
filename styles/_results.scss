@@ -18,7 +18,7 @@
   }
 
   .util{
-    max-width: 525px;
+    max-width: 350px;
     text-align: center;
     margin: auto;
     font-family: "Benton Sans";
@@ -46,7 +46,7 @@
     text-transform: none;
     font-size: 0.9em;
     font-weight:600;
-    padding: 0px 0 40px;
+    padding: 0px;
 
     a {
       text-decoration:none;
@@ -67,6 +67,7 @@
   h6 {
     font-size: 1em;
     font-weight: normal;
+    color: black;
   }
 
   .office-details{
@@ -96,14 +97,14 @@
 
     @media (max-width: 768px) {
       margin: auto;
-      margin-bottom: 25px;
+      margin-bottom: 30px;
     }
   }
 
   .race-party {
     width: 46%;
     float: left;
-    margin-bottom: 40px;
+    //margin-bottom: 0px;
 
     @media (max-width: 768px) {
       width: 100%;
@@ -118,12 +119,24 @@
     clear: both;
   }
 
-  .race {
-    margin-bottom: 2em;
+  .race-group, #mn-governor {
+    padding-top: 4.5em;
   }
 
-  .race-party-table {
-    min-height: 100px;
+  #state-offices, #courts, {
+    padding-top: 3.8em;
+  }
+
+  #mn-district-court .race-group{
+    padding-top: 0px;
+  }
+
+  .race-party{
+    margin-bottom: 2em;
+
+    @media (max-width: 768px){
+      margin-bottom: 0em;
+    }
   }
 
   .race-party table {
@@ -416,6 +429,10 @@
       width: 100%;
       float: none;
     }
+  }
+
+  #mn-district-court .race{
+    margin-bottom: 2em;
   }
 
   #mn-district-court .race-party{
