@@ -26,9 +26,11 @@ $candidateColors: (
 
   // A bit hacky, and probaly needs some adjustment
   .race-party-table {
-    min-height: 255px;
+    min-height: 230px;
 
-    // TODO: mobile/single-column, remove min-height
+    @media(max-width: 768px){
+      min-height: 0px;
+    }
   }
 
   // Candidate colors colors
