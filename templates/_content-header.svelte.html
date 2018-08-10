@@ -6,8 +6,8 @@
     <!-- share -->
   </div>
 
-  <div id="navigation" ref:navigation>
-    
+  <div class="navigation-placeholder" ref:navigationPlaceholder></div>
+  <div id="navigation" class="cf" ref:navigation>
     <nav id="button-nav" class="hidden-phone">
       <ul>
         <li class="main-nav"><a href="#mn-governor">Governor</a></li>
@@ -65,6 +65,11 @@
         navigationTop: this.refs.navigation.offsetTop
       });
 
+      // Set place holder.  Some padding? that isn't account for, so
+      // add 20;
+      this.refs.navigationPlaceholder.style.height =
+        this.refs.navigation.offsetHeight + 20 + "px";
+
       // Make throttled updated
       this.throttledUpdateStickyNav = throttle(() => {
         this.updateStickyNav();
@@ -83,8 +88,10 @@
     methods: {
       updateStickyNav() {
         if (window.pageYOffset >= this.get().navigationTop) {
+          this.refs.navigationPlaceholder.classList.add("sticky-on");
           this.refs.navigation.classList.add("sticky");
         } else {
+          this.refs.navigationPlaceholder.classList.remove("sticky-on");
           this.refs.navigation.classList.remove("sticky");
         }
       }
