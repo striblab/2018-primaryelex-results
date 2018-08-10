@@ -115,6 +115,10 @@
       BodyCondensed2Col
     },
 
-    oncreate: function() {}
+    oncreate: function() {
+      if (this.get().attachShare) {
+        this.get().attachShare();
+      }
+    }
   };
 </script>
