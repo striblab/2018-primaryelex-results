@@ -31,7 +31,7 @@
 
                     {#if hasSeat}
                       <td class="seat">
-                        { formatSeatName(office.seatName) }
+                        { formatSeatName(office.seatName, office.shortTitle) }
                       </td>
                     {/if}
 
@@ -115,12 +115,14 @@
           .replace(/seat [0-9]+/i, "")
           .trim();
       },
-      formatSeatName: input => {
+      formatSeatName: (input, fallback) => {
         input = input || "";
-        return input
-          .toString()
-          .replace(/seat /i, "")
-          .trim();
+        return !input
+          ? fallback
+          : input
+              .toString()
+              .replace(/seat /i, "")
+              .trim();
       }
     },
 
