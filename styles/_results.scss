@@ -32,7 +32,7 @@
     font-family: "Benton Sans";
     text-transform: none;
     font-size: 0.9em;
-    padding: 20px 0 20px;
+    padding: 0px 0 20px;
   }
 
   .lead-in span {
@@ -147,6 +147,7 @@
       border-top: none;
     }
   }
+
 
   .race-party thead tr th {
     font-size: 0.6em;
@@ -306,6 +307,7 @@
     width:100%;
     display:inline-block;
     float:none;
+    margin-left:0px;
   }
 
   .uncontested {
