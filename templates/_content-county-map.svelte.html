@@ -64,9 +64,22 @@
         let countyResults =
           subResults[`2013-mn-county-${feature.properties.COUNTYFP}`];
         let topCountyResults = countyResults[0];
+
+        // Make sure there is data
         if (!topCountyResults) {
           return "no-county-leader";
         }
+
+        // Look for tie
+        if (
+          countyResults[0].votes &&
+          countyResults[0].votes === countyResults[1].votes
+        ) {
+          console.info("county tie", countyResults);
+          return "no-county-leader";
+        }
+
+        // Determine level of reporting
         let contestResult = keyedResults[topCountyResults.candidate_id];
         let reporting =
           topCountyResults.resultDetails &&
