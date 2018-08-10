@@ -1,13 +1,18 @@
+// UTILITY STYLES
+
+.left {
+  float:left;
+}
+
+.right {
+  float:right;
+}
+
 // RESULTS mainframe
 .results {
   max-width: 1050px;
 
   @media (max-width: 768px) {
-    max-width: 65%;
-    margin: auto;
-  }
-
-  @media (max-width: 545px) {
     max-width: 95%;
     margin: auto;
   }
@@ -27,11 +32,25 @@
     font-family: "Benton Sans";
     text-transform: none;
     font-size: 0.9em;
-    padding: 20px 0 40px;
+    padding: 20px 0 20px;
   }
 
   .lead-in span {
     font-weight: bold;
+  }
+
+  .promo {
+    max-width: 525px;
+    margin: auto;
+    font-family: "Benton Sans";
+    text-transform: none;
+    font-size: 0.9em;
+    font-weight:600;
+    padding: 0px 0 40px;
+
+    a {
+      text-decoration:none;
+    }
   }
 
   h3, #mn-governor h4{
@@ -105,14 +124,28 @@
 
   .race-party-table {
     min-height: 100px;
-
-    @media (max-width: 768px){
-      min-height: 0px;
-    }
   }
 
   .race-party table {
     margin-bottom: 0.5em;
+  }
+
+  .race-party-table.left table {
+    @media (max-width: 768px){
+      margin-bottom:0px;
+    }
+  }
+
+  .race-party-table.right thead {
+    @media (max-width: 768px){
+      display:none;
+    }
+  }
+
+  .race-party-table.right tbody tr td {
+    @media (max-width: 768px){
+      border-top: none;
+    }
   }
 
   .race-party thead tr th {
@@ -269,6 +302,12 @@
 
   //Uncontested
 
+  #mn-state-house-uncontested {
+    width:100%;
+    display:inline-block;
+    float:none;
+  }
+
   .uncontested {
     th.votes,
     th.pct,
@@ -291,6 +330,7 @@
   //Condensed tables
 
   .condensed {
+    width: 46%;
 
     @media (max-width: 768px) {
       width: 100%;
