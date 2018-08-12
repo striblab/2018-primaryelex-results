@@ -35,6 +35,9 @@
     padding-top: 20px;
     padding-bottom: 20px;
     border-bottom: 1px solid #e8e8e8;
+    @media (max-width: 545px) {
+      padding-bottom: 0px;
+    }
   }
 
   // Placeholder
@@ -65,10 +68,17 @@
     font-family: "Benton Sans";
     border: 1px solid #080808;
     border-radius: 6px;
-    padding: 5px 10px 4px 10px;
     margin-right: 12px;
     min-width: 15%;
     position: relative;
+  }
+
+  nav ul li.nodrop {
+    padding: 6px 10px 6px 10px;
+  }
+
+  nav ul li.drop {
+    padding: 6px 10px 4px 10px;
   }
 
   nav ul li span {
@@ -140,6 +150,7 @@
 
   nav select option.sub {
     font-weight: normal;
+    text-transform: capitalize;
   }
 
   #drop-nav {

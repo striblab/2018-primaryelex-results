@@ -2,72 +2,92 @@
  * County map and colors.
  */
 
-$demColors: #82bae0, #b9ee7d, #ce91e9, #65c0b0, #9084c3;
-$repColors: #eb6868, #f9f37c, #fba363, #f695be, #fc9e8a;
+$candidateColors: (
+  mn-20180814-33506-murphy: #82BAE0,
+  mn-20180814-33509-walz: #B9EE7D,
+  mn-20180814-33508-swanson: #CE91E9,
+  mn-20180814-33505-holden: #65C0B0,
+  mn-20180814-33507-savior: #9084C3,
+  mn-20180814-33512-johnson: #EB6868,
+  mn-20180814-33511-pawlenty: #F9F37C,
+  mn-20180814-33510-kruse: #FBA363
+);
 
-.has-county-map {
+.results .has-county-map {
   .contest-county-map {
     // Use margin top since we want to get offsetHeight
     margin-top: 2em;
     position: relative;
   }
 
+  .county-path {
+    fill: #F5F5F5;
+    stroke: #FFFFFF;
+    stroke-width: 0.5px;
+    transition: fill 1s;
+  }
+
   .county-path:hover {
     cursor: pointer;
+    stroke-width: 2px;
   }
 
   // A bit hacky, and probaly needs some adjustment
   .race-party-table {
-    min-height: 230px;
+    min-height: 240px;
 
-    @media(max-width: 768px){
-      min-height: 0px;
+    @media (max-width: 768px) {
+      min-height: 0;
     }
   }
 
-  // Dem colors
-  &.party-dfl,
-  &.party-dem {
-    @each $c in $demColors {
-      $index: index($demColors, $c);
-
-      .candidate-result-#{$index - 1} {
-        background-color: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1},
-      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
-        fill: $c;
-      }
+  // Candidate colors colors
+  @each $cand, $color in $candidateColors {
+    .candidate-result-#{$cand} {
+      background-color: $color;
     }
-  }
 
-  // Rep colors
-  &.party-rep {
-    @each $c in $repColors {
-      $index: index($repColors, $c);
-
-      .candidate-result-#{$index - 1} {
-        background-color: $c;
-      }
-
-      &.is-reporting .county-reporting.county-leader-#{$index - 1},
-      &.is-reporting .county-fully-reported.county-leader-#{$index - 1} {
-        fill: $c;
-      }
+    &.is-reporting .county-reporting.county-leader-#{$cand},
+    &.is-reporting .county-fully-reported.county-leader-#{$cand} {
+      fill: $color;
     }
   }
 
   .county-map-tooltip {
     position: absolute;
     z-index: 100;
-    width: 60%;
+    max-width: 15em;
     top: 0;
     left: 0;
     right: 0;
     display: none;
     font-size: 0.8em;
     background-color: #FFFFFF;
+    border: 1px solid #565656;
+    border-radius: 2px;
+    margin: 0.5em;
+    padding: 0.5em;
+
+    h4 {
+      padding-top: 0;
+      margin-top: 0;
+      font-size: 1em !important;
+    }
+
+    td{
+      font-size: .9em;
+      padding-top: .4em;
+      padding-bottom: .4em;
+    }
+
+    .map-cand{
+      padding-left: 0px;
+    }
+
+    .map-votes, .map-pct{
+      padding-right: .5px;
+      text-align: right;
+    }
 
     &.tooltip-hover-region-top {
       top: auto;

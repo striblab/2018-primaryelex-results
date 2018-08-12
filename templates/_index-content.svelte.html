@@ -3,8 +3,10 @@
   <Header />
 
   <section class="results container-lg cf">
-    <p class="util">Polls close at 8 p.m. Incumbents have been marked with (i).</p>
-    <p class="lead-in"><span>Races to watch:</span> Both sides of Minnesota's open governor's race face contentious primaries, and Sen. Tina Smith is looking to bat back a challenge from ethics lawyer Richard Painter in the special senate election. Meanwhile, the democratic primary for the fifth congressional district could well determine who goes to Washington since the Minneapolis-centric district has voted for a democrat for the last 50 years.</p>
+    <p class="util">Polls close at 8 p.m. Incumbents have been marked with (i). Uncontested third-party races are not listed.</p>
+    <p class="lead-in"><span>Races to watch:</span> Both the DFL and Republican gubernatorial primaries are expected to be contentious, as party-endorsed candidates face strong and well-funded challengers. In the special election to serve out the term of former DFL Sen. Al Franken, who stepped down in January, his appointed replacement, Tina Smith, is looking to fend off a challenge from ethics lawyer Richard Painter.</p>
+    <p class="lead-in">Meanwhile, the DFL primary in the Fifth Congressional District could determine who goes to Washington, as the Minneapolis-area district has been represented by a DFL congressman since the 1960s.</p>
+    <p class="promo"><a href="http://newsletters.startribune.com/pages/1788361/4540" target="_blank">Follow the Star Tribune's coverage of this campaign season by signing up to our daily politics newsletter.</a></p>
 
     <Office defaultTitle="Governor"
       id="mn-governor"
@@ -24,7 +26,7 @@
       likelyOffices="{ 8 }"
       parties="{ ['dfl', 'dem', 'rep'] }" />
 
-    <h3 class="font-benton-sans" id="S">Statewide Offices</h3>
+    <h3 class="font-benton-sans" id="state-offices">Statewide Offices</h3>
     <Office defaultTitle="Minnesota Attorney General"
       id="mn-attorney-general"
       supplement="{ supplement }"
@@ -47,20 +49,21 @@
       contestedFilter="contested"
       likelyOffices="{ 21 }" />
 
-    <BodyCondensed defaultTitle="Uncontested State House"
+    <BodyCondensed2Col defaultTitle="Uncontested State House Districts"
       id="mn-state-house"
       supplement="{ supplement }"
       parties="{ ['dfl', 'dem', 'rep'] }"
       contestedFilter="uncontested"
       likelyOffices="{ 67 * 2 - 21 }" />
 
-    <h3 class="font-benton-sans" id="C">Courts</h3>
-    <p class="body-chat">These nonpartisan races take the top two vote-getters as winners for each seat in a primary. Only a handful of district races are contested this year.</p>
-    <BodyCondensed  defaultTitle="Uncontested Supreme Court Seats"
+    <h3 class="font-benton-sans" id="courts">Courts</h3>
+    <p class="body-chat">Court races are nonpartisan and most are uncontested. In contested court races, the top two vote-getters advance to the general election.</p>
+
+    <BodyCondensed  defaultTitle="Supreme Court"
       id="mn-supreme-court"
       supplement="{ supplement }" />
 
-    <BodyCondensed  defaultTitle="Uncontested Appellate Court Seats"
+    <BodyCondensed  defaultTitle="Court of Appeals"
       id="mn-appeals-court"
       supplement="{ supplement }" />
 
@@ -76,10 +79,21 @@
       contestedFilter="uncontested" />
 
     <div class="credits">
-      <p>Source: Associated Press, Minneasota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
-      <p>Credits: Alan Palazzolo, C.J. Sinner, Chase Davis, Jeff Hargarten, Rahul Mukherjee, Jamie Hutt, Matt DeLong</p>
+      <p>Source: Associated Press, Minnesota Secretary of State, Star Tribune analysis. Election results and winner calls provided by the Associated Press.</p>
+      <p>Credits: Alan Palazzolo, C.J. Sinner, Jeff Hargarten, Rahul Mukherjee, Matt DeLong, Jamie Hutt, Chase Davis</p>
     </div>
   </section>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114906116-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-114906116-1');
+  </script>
+
 </div>
 
 <script>
@@ -88,6 +102,8 @@
   import Office from "./_content-office.svelte.html";
   import Body from "./_content-body.svelte.html";
   import BodyCondensed from "./_content-body-condensed.svelte.html";
+  import BodyCondensed2Col from "./_content-body-condensed-2col.svelte.html";
+
 
   // Svelte logic
   export default {
@@ -95,9 +111,14 @@
       Header,
       Office,
       Body,
-      BodyCondensed
+      BodyCondensed,
+      BodyCondensed2Col
     },
 
-    oncreate: function() {}
+    oncreate: function() {
+      if (this.get().attachShare) {
+        this.get().attachShare();
+      }
+    }
   };
 </script>

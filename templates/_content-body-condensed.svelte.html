@@ -115,11 +115,10 @@
           .replace(/seat [0-9]+/i, "")
           .trim();
       },
-
-      formatSeatName: (input, shortTitle) => {
+      formatSeatName: (input, fallback) => {
         input = input || "";
         return !input
-          ? shortTitle
+          ? fallback
           : input
               .toString()
               .replace(/seat /i, "")
@@ -131,8 +130,10 @@
       // Add some randomness to the interval, so they all
       // don't go at once
       adjustedInterval() {
+        let uncontested = this.get().contestedFilter === "uncontested";
         return (
-          (this.store.get().interval || 60 * 1000) + Math.random() * 5 * 1000
+          (this.store.get().interval || 60 * 1000) * (uncontested ? 3 : 1) +
+          Math.random() * 5 * 1000
         );
       },
 
