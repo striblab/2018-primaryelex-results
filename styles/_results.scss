@@ -1,11 +1,11 @@
 // UTILITY STYLES
 
 .left {
-  float:left;
+  float: left;
 }
 
 .right {
-  float:right;
+  float: right;
 }
 
 // RESULTS mainframe
@@ -17,7 +17,7 @@
     margin: auto;
   }
 
-  .util{
+  .util {
     max-width: 350px;
     text-align: center;
     margin: auto;
@@ -45,15 +45,16 @@
     font-family: "Benton Sans";
     text-transform: none;
     font-size: 0.9em;
-    font-weight:600;
+    font-weight: 600;
     padding: 0px;
 
     a {
-      text-decoration:none;
+      text-decoration: none;
     }
   }
 
-  h3, #mn-governor h4{
+  h3,
+  #mn-governor h4 {
     font-size: 1.4em;
     font-weight: bold;
   }
@@ -61,7 +62,7 @@
   h4 {
     font-size: 1.1em;
     font-weight: bold;
-    margin-bottom: .2em;
+    margin-bottom: 0.2em;
   }
 
   h6 {
@@ -70,8 +71,8 @@
     color: black;
   }
 
-  .office-details{
-    clear:both;
+  .office-details {
+    clear: both;
   }
 
   p.timestamp {
@@ -82,7 +83,7 @@
   }
 
   p.body-chat,
-  p.office-chat{
+  p.office-chat {
     font-family: "Benton Sans";
     font-size: 0.9em;
     width: 75%;
@@ -119,22 +120,24 @@
     clear: both;
   }
 
-  .race-group, #mn-governor {
+  .race-group,
+  #mn-governor {
     padding-top: 4.5em;
   }
 
-  #state-offices, #courts, {
+  #state-offices,
+  #courts {
     padding-top: 3.8em;
   }
 
-  #mn-district-court .race-group{
+  #mn-district-court .race-group {
     padding-top: 0px;
   }
 
-  .race-party{
+  .race-party {
     margin-bottom: 2em;
 
-    @media (max-width: 768px){
+    @media (max-width: 768px) {
       margin-bottom: 0em;
     }
   }
@@ -144,42 +147,41 @@
   }
 
   .race-party-table.left table {
-    @media (max-width: 768px){
-      margin-bottom:0px;
+    @media (max-width: 768px) {
+      margin-bottom: 0px;
     }
   }
 
   .race-party-table.right thead {
-    @media (max-width: 768px){
-      display:none;
+    @media (max-width: 768px) {
+      display: none;
     }
   }
 
   .race-party-table.right tbody tr td {
-    @media (max-width: 768px){
+    @media (max-width: 768px) {
       border-top: none;
     }
   }
-
 
   .race-party thead tr th {
     font-size: 0.6em;
     text-transform: uppercase;
     color: #080808;
     font-weight: normal;
-    border-bottom: 3px solid #EEEEEE;
+    border-bottom: 3px solid #eeeeee;
     padding-left: 0;
     padding-bottom: 0.2em;
   }
 
   .race-party tbody td {
     font-size: 0.9em;
-    border-bottom: 1px solid #EEEEEE;
+    border-bottom: 1px solid #eeeeee;
     vertical-align: middle;
   }
 
   tr.test-data {
-    border-right: 3px solid #FF6933;
+    border-right: 3px solid #ff6933;
   }
 
   .cand {
@@ -189,49 +191,6 @@
   .cand > span.inc {
     font-size: 0.8em;
     padding-left: 5px;
-  }
-
-  @media (max-width:900px){
-    span.Murphy, span.Walz, span.Swanson, span.Holden, span.Savior, span.Johnson, span.Pawlenty, span.Kruse{
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-      display: inline-block;
-      margin-left: 2px;
-      margin-right: 5px;
-    }
-
-    span.Murphy{
-      background-color: #82bae0;
-    }
-
-    span.Walz{
-      background-color: #b9ee7d;
-    }
-
-    span.Swanson{
-      background-color: #ce91e9;
-    }
-
-    span.Holden{
-      background-color: #65c0b0;
-    }
-
-    span.Savior{
-      background-color: #9084c3;
-    }
-
-    span.Johnson{
-      background-color: #eb6868;
-    }
-
-    span.Pawlenty{
-      background-color: #f9f37c;
-    }
-
-    span.Kruse{
-      background-color: #fba363;
-    }
   }
 
   .votes,
@@ -257,11 +216,11 @@
 
   .party-dem .pctBar,
   .party-dfl .pctBar {
-    background-color: #0258A0;
+    background-color: #0258a0;
   }
 
   .party-rep .pctBar {
-    background-color: #C0272D;
+    background-color: #c0272d;
   }
 
   .party-np .pctBar {
@@ -278,14 +237,14 @@
     width: 100%;
     height: 400px;
     margin: auto;
-    background-color: #EEEEEE;
+    background-color: #eeeeee;
     display: block;
   }
 
   // MAP styles
 
   .counties {
-    fill: #DCDCDC;
+    fill: #dcdcdc;
     stroke: white;
     stroke-width: 0.5px;
     stroke-linejoin: round;
@@ -297,7 +256,7 @@
   //Winners
 
   tr.winner {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
   }
 
   tr.winner td.cand {
@@ -317,10 +276,10 @@
   //Uncontested
 
   #mn-state-house-uncontested {
-    width:100%;
-    display:inline-block;
-    float:none;
-    margin-left:0px;
+    width: 100%;
+    display: inline-block;
+    float: none;
+    margin-left: 0px;
   }
 
   .uncontested {
@@ -356,15 +315,16 @@
       font-size: 0.77em;
     }
 
-    .dist, .seat {
+    .dist,
+    .seat {
       width: 15%;
       text-align: center;
       padding-left: 0px;
       padding-right: 0px;
     }
 
-    .cand>span {
-      padding-left:0px;
+    .cand > span {
+      padding-left: 0px;
     }
 
     .winner > .dist,
@@ -382,67 +342,67 @@
 
     table span.party-dfl,
     table span.party-dem {
-      background-color: #0258A0;
+      background-color: #0258a0;
     }
 
     table span.party-rep {
-      background-color: #C0272D;
+      background-color: #c0272d;
     }
   }
 
-  .uncontested-condensed .race-party{
+  .uncontested-condensed .race-party {
     float: none;
     margin-left: 0px;
   }
 
   // Weird exceptions for the uncontested condensed races
 
-  #mn-supreme-court- .dist, #mn-appeals-court- .dist{
-    display:none;
-  }
-
-  #mn-supreme-court-{
-    float: left;
-
-    @media (max-width: 768px){
-      float: none;
-    }
-  }
-
-  #mn-appeals-court-{
-    float: right;
-
-    @media (max-width: 768px){
-      float: none;
-    }
-  }
-
-  #mn-district-court h3{
+  #mn-supreme-court- .dist,
+  #mn-appeals-court- .dist {
     display: none;
   }
 
-  #mn-district-court .race-group{
+  #mn-supreme-court- {
+    float: left;
+
+    @media (max-width: 768px) {
+      float: none;
+    }
+  }
+
+  #mn-appeals-court- {
+    float: right;
+
+    @media (max-width: 768px) {
+      float: none;
+    }
+  }
+
+  #mn-district-court h3 {
+    display: none;
+  }
+
+  #mn-district-court .race-group {
     width: 46%;
     float: left;
 
-    @media (max-width:768px){
+    @media (max-width: 768px) {
       width: 100%;
       float: none;
     }
   }
 
-  #mn-district-court .race{
+  #mn-district-court .race {
     margin-bottom: 2em;
   }
 
-  #mn-district-court .race-party{
+  #mn-district-court .race-party {
     width: 100%;
   }
 
-  .uncontested-condensed #mn-district-court-uncontested{
+  .uncontested-condensed #mn-district-court-uncontested {
     float: right;
   }
-
 
   // Credits and footers
 
