@@ -1,6 +1,7 @@
 <div class="uncontested-condensed">
   <div class="race-party condensed body-{ partisan ? 'partisan' : 'nonpartisan' }" id="{ alteredId }">
     <h4>{ supplementedTitle }</h4>
+    <p class="timestamp">Last updated: { updatedDate ? makeDate(updatedDate) : '-' }</p>
 
     <div class="race-party-table">
       <table>
@@ -103,6 +104,23 @@
         return supplement && id && supplement[id] && supplement[id].description
           ? supplement[id].description
           : undefined;
+      },
+
+      updatedDate: ({ offices }) => {
+        if (!offices) {
+          return;
+        }
+
+        let o = Object.entries(offices);
+        if (!o || !o[1] || !o[0][1].contests || !o[0][1].contests[0]) {
+          return;
+        }
+
+        // TODO: Get newest/oldest date
+        return (
+          o[0][1].contests[0].results[0].apUpdated ||
+          o[0][1].contests[0].results[0].last_updated
+        );
       }
     },
 
@@ -115,6 +133,7 @@
           .replace(/seat [0-9]+/i, "")
           .trim();
       },
+
       formatSeatName: (input, fallback) => {
         input = input || "";
         return !input
@@ -123,6 +142,18 @@
               .toString()
               .replace(/seat /i, "")
               .trim();
+      },
+
+      makeDate: (date, format) => {
+        let m = moment(date);
+        let now = moment();
+        if (!m || !m.isValid()) {
+          return "";
+        }
+
+        return m.isSame(now, "date")
+          ? m.format("h:mm a")
+          : m.format("MMM Do h:mm a");
       }
     },
 
