@@ -2,12 +2,11 @@
   "presets": [
     // Use debug: true to see what transforms are happening
     // and what browsers needed them
-    ["@babel/preset-env", {}]
+    ["@babel/preset-env", { debug: true }]
   ],
   "plugins": [
     "lodash",
     ["@babel/plugin-transform-runtime", {
-      "polyfill": false,
       "regenerator": true
     }]
   ]

@@ -5,6 +5,24 @@
 const path = require('path');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
 
+// Loader options
+let loaders = {
+  babel: {
+    loader: 'babel-loader',
+    options: {
+      cacheDirectory: true
+    }
+  },
+  svelte: {
+    loader: 'svelte-loader',
+    options: {
+      hydratable: true,
+      store: true,
+      legacy: true
+    }
+  }
+};
+
 module.exports = {
   mode: process.env.NODE_ENV || 'production',
   devtool: 'source-map',
@@ -15,24 +33,16 @@ module.exports = {
   },
   module: {
     rules: [
-      {
-        // Note that this works different on Windows, assumingly
-        // because of the different path separator.  Beware.
-        test: /\.(svelte\.html|svelte)|app.*\.js$/,
-        loader: 'babel-loader',
-        options: {
-          cacheDirectory: true
-        }
-      },
+      // Loaded top to bottom.  Right to left.
       {
         test: /\.(svelte\.html|svelte)$/,
-        use: {
-          loader: 'svelte-loader',
-          options: {
-            hydratable: true,
-            store: true
-          }
-        }
+        exclude: /node_modules/,
+        use: [loaders.babel, loaders.svelte]
+      },
+      {
+        test: /app.*\.js$/,
+        exclude: /node_modules/,
+        use: [loaders.babel]
       }
     ]
   },

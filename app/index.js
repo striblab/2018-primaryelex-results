@@ -45,4 +45,6 @@ $(document).ready(() => {
   // Debug
   window._store = store;
   window._app = app;
+
+  window.uniquething = `${window._app.name} here`;
 });
