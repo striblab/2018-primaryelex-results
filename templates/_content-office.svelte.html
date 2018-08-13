@@ -60,11 +60,14 @@
     helpers: {
       makeDate: (date, format) => {
         let m = moment(date);
+        let now = moment();
         if (!m || !m.isValid()) {
           return "";
         }
 
-        return m.format("h:mm a");
+        return m.isSame(now, "date")
+          ? m.format("h:mm a")
+          : m.format("MMM Do h:mm a");
       }
     },
 
