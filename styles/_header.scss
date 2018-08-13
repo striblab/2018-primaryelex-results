@@ -172,16 +172,19 @@
   nav ul li:hover {
     color: #666;
     border: 1px solid #666;
+    border-radius: 6px;
     cursor: pointer;
     background-color: #eee;
   }
 
-  nav ul li a:hover {
+  nav ul a:hover li, nav ul li:hover a, nav ul li a:hover{
     color: #666;
   }
 
-  nav ul li a:hover {
-    background-color: eee;
+  nav ul a:hover li{
+    background-color: #eee;
+    border: 1px solid #666;
+    border-radius: 6px;
   }
 
   nav ul li:hover ul.nav-dropdown {
