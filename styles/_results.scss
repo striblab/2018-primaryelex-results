@@ -424,14 +424,16 @@
 
   // Credits and footers
 
-  .credits p {
-    font-family: "Benton Sans";
-    font-size: 0.8em;
-    color: #808080;
+  .credits {
     clear: both;
+    padding-top: 8em;
+
+    p {
+      font-family: "Benton Sans";
+      font-size: 0.8em;
+      color: #808080;
+    }
+
   }
 
-  footer {
-    padding-top: 350px;
-  }
 }
