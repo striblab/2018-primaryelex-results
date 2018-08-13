@@ -2,7 +2,10 @@
   "presets": [
     // Use debug: true to see what transforms are happening
     // and what browsers needed them
-    ["@babel/preset-env", { debug: true }]
+    ["@babel/preset-env", {
+      "useBuiltIns": "usage",
+      "debug": true
+    }]
   ],
   "plugins": [
     "lodash",
