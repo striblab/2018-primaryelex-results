@@ -75,6 +75,14 @@
         this.updateStickyNav();
       }, 50);
 
+      // Does this go here? Prevent weird iOS select bug.
+      var userAgent = window.navigator.userAgent;
+      if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+        document.querySelector("#drop-nav select").addEventListener("touchstart", function(event) {
+          event.preventDefault();
+        });
+      }
+
       // Add to scroll event
       window.addEventListener("scroll", this.throttledUpdateStickyNav);
     },
