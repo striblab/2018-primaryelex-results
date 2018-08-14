@@ -101,6 +101,10 @@
     -moz-transform: rotateZ(90deg);
     transform: rotateZ(90deg);
     vertical-align: bottom;
+
+    @media (max-width: 1000px) {
+      width: 15px;
+    }
   }
 
   nav ul li:last-child {
