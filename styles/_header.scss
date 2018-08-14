@@ -7,6 +7,10 @@
     padding-top: 0.3em;
     line-height: 1.1em;
     margin-bottom: 0em;
+
+    @media (max-width: 545px){
+      margin-bottom: .5em;
+    }
   }
 
   h5 {
