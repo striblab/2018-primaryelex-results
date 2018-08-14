@@ -95,7 +95,8 @@
 
     methods: {
       updateStickyNav() {
-        if (window.pageYOffset >= this.get().navigationTop) {
+        // HACK: Trying to hard-code an ad-sized offset in here.
+        if (window.pageYOffset >= this.get().navigationTop + 250) {
           this.refs.navigationPlaceholder.classList.add("sticky-on");
           this.refs.navigation.classList.add("sticky");
         } else {
