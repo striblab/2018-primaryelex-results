@@ -115,3 +115,10 @@ $candidateColors: (
     }
   }
 }
+
+// IE11 needs a specific height
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .results .has-county-map .contest-county-map {
+    height: 400px;
+  }
+}
