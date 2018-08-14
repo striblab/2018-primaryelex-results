@@ -20,9 +20,6 @@
     padding-top: 40px;
   }
 
-  .share-placeholder aside{
-  //  margin-bottom: 5em;
-  }
 
   // NAV default styles
 
@@ -153,10 +150,6 @@
     padding: 5px 0px 5px 0px;
   }
 
-  nav select option.group {
-    padding-bottom: 7px;
-  }
-
   nav select option.sub {
     font-weight: normal;
     text-transform: capitalize;
@@ -197,7 +190,6 @@
   }
 
   nav ul li:hover ul.nav-dropdown {
-    //display: block;
     visibility: visible;
     opacity: 1;
     filter: alpha(opacity=100);
