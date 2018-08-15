@@ -65,11 +65,9 @@
           return "";
         }
 
-        return m.format("h:mm a");
-
-        // return m.isSame(now, "date")
-        //   ? m.format("h:mm a")
-        //   : m.format("MMM D h:mm a");
+        return m.isSame(now, "date")
+          ? m.format("h:mm a")
+          : m.format("MMM D h:mm a");
       }
     },
 
