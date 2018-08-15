@@ -70,6 +70,11 @@
           return "no-county-leader";
         }
 
+        // No votes
+        if (!countyResults[0].votes) {
+          return "no-county-leader";
+        }
+
         // Look for tie
         if (
           countyResults[0].votes &&
