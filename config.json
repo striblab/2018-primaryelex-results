@@ -10,8 +10,8 @@
 
   "cms": {
     "id": "489884831",
-    "pages": ["489884831", "489886271"],
-    "lcds": ["489885091", "489886411"],
+    "pages": ["489884831"],
+    "lcds": ["489885091"],
     "rewriteMapping": {
       "article-lcd-body-content": "_index-content.html"
     }
