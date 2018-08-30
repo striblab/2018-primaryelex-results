@@ -80,6 +80,7 @@
         {/each}
       {/if}
     </g>
+
   </svg>
 
   <div class="county-map-legend"></div>
@@ -214,17 +215,17 @@
         let tooltip = select(this.refs.container).select('.county-map-tooltip');
 
         let { tooltipHeight, tooltipWidth } = this.get();
-        let tooltipOffset = 15; // Position the tooltip a little under the cursor.
-        let cursorInZone = event.clientY + tooltipHeight + 15 >= window.innerHeight;
+        let tooltipOffset = 25; // Position the tooltip a little under/over the cursor itself.
+        let cursorOffPage = event.clientY + (tooltipHeight + tooltipOffset) >= window.innerHeight;
 
         tooltip
           .style('left', event.offsetX - (tooltipWidth / 2) + 'px')
-          .style('top', event.offsetY + 15 + 'px');
+          .style('top', event.offsetY + tooltipOffset + 'px');
 
-        if (!cursorInZone) {
+        if (!cursorOffPage) {
           tooltip
             .style('left', event.offsetX - (tooltipWidth / 2) + 'px')
-            .style('top', event.offsetY + 15 + 'px');
+            .style('top', event.offsetY + tooltipOffset + 'px');
         } else {          
           tooltip
             .style('left', event.offsetX - (tooltipWidth / 2) + 'px')

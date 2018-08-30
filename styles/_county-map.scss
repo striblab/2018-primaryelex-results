@@ -29,6 +29,8 @@ $candidateColors: (
     fill:none;
     stroke-width:2px;
     stroke:#dcdcdc;
+    stroke-linecap:round;
+    stoke-linejoin:round;
   }
 
   .county-path {
@@ -36,6 +38,8 @@ $candidateColors: (
     stroke: #ffffff;
     stroke-width: 0.5px;
     transition: fill 1s;
+    stroke-linecap:round;
+    stoke-linejoin:round;
   }
 
   .road-path {
@@ -70,7 +74,7 @@ $candidateColors: (
 
   .county-path:hover {
     cursor: pointer;
-    stroke-width: 2px;
+    stroke-width: 1.5px;
   }
 
   // A bit hacky, and probaly needs some adjustment
