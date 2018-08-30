@@ -214,22 +214,25 @@
         // it works pretty well (and the pixel math makes sense).
         let tooltip = select(this.refs.container).select('.county-map-tooltip');
 
+        // Get offset position in a way that also works for Firefox (with layerX and layerY). This
+        // is probably not a great way to handle this problem, but it works ...
+        var x = event.layerX ==  event.offsetX ? event.offsetX : event.layerX;
+        var y = event.layerY ==  event.offsetY ? event.offsetY : event.layerY;
+
+        // Do pixel magic
         let { tooltipHeight, tooltipWidth } = this.get();
         let tooltipOffset = 25; // Position the tooltip a little under/over the cursor itself.
         let cursorOffPage = event.clientY + (tooltipHeight + tooltipOffset) >= window.innerHeight;
 
-        tooltip
-          .style('left', event.offsetX - (tooltipWidth / 2) + 'px')
-          .style('top', event.offsetY + tooltipOffset + 'px');
-
+        // Position the tooltip based on whether it flows over the page boundary
         if (!cursorOffPage) {
           tooltip
-            .style('left', event.offsetX - (tooltipWidth / 2) + 'px')
-            .style('top', event.offsetY + tooltipOffset + 'px');
+            .style('left', x - (tooltipWidth / 2) + 'px')
+            .style('top', y + tooltipOffset + 'px');
         } else {          
           tooltip
-            .style('left', event.offsetX - (tooltipWidth / 2) + 'px')
-            .style('top', event.offsetY - (tooltipHeight + tooltipOffset) + 'px');
+            .style('left', x - (tooltipWidth / 2) + 'px')
+            .style('top', y - (tooltipHeight + tooltipOffset) + 'px');
         }
       },
 
