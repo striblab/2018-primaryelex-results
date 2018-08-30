@@ -25,9 +25,21 @@ $(document).ready(() => {
     // No trailing slash
     civixEndpoint: '//static.startribune.com/elections/civix/mn-20180814',
     interval: 60 * 1000,
+    mnStateGeo: topojsonFeature(
+      mnCountiesTopo,
+      mnCountiesTopo.objects.state
+    ).features,
     mnCountiesGeo: topojsonFeature(
       mnCountiesTopo,
       mnCountiesTopo.objects.counties
+    ).features,
+    mnCitiesGeo: topojsonFeature(
+      mnCountiesTopo,
+      mnCountiesTopo.objects.cities
+    ).features,
+    mnRoadsGeo: topojsonFeature(
+      mnCountiesTopo,
+      mnCountiesTopo.objects.roads
     ).features
   });
 
